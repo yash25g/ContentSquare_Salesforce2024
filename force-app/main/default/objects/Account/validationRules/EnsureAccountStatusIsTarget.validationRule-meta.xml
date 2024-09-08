@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EnsureAccountStatusIsTarget</fullName>
+    <active>true</active>
+    <description>Ensures that the account status is set to &apos;Target&apos; when new account is getting created.</description>
+    <errorConditionFormula>AND(NOT($Permission.ByPassVR), ISNEW(), NOT(ISPICKVAL( AccountStatus__c ,&apos;Target&apos;)))</errorConditionFormula>
+    <errorDisplayField>AccountStatus__c</errorDisplayField>
+    <errorMessage>The account status must be set to &apos;Target&apos; in order to create the account. Please update the account status accordingly.</errorMessage>
+</ValidationRule>

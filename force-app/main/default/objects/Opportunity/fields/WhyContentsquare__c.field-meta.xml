@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WhyContentsquare__c</fullName>
+    <description>Sales process release June 2019 ( note Estelle)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Summarize in few words the context &gt; will be used for win report communication.</inlineHelpText>
+    <label>Why Contentsquare?</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

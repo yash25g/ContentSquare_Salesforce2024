@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ContactSource__c</fullName>
+    <description>Feed by Lead conversion or manual creation or by Gainsight</description>
+    <externalId>false</externalId>
+    <label>Contact Source</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>aaaa</fullName>
+                <default>false</default>
+                <label>aaaa</label>
+            </value>
+            <value>
+                <fullName>bbbb</fullName>
+                <default>false</default>
+                <label>bbbb</label>
+            </value>
+            <value>
+                <fullName>cccc</fullName>
+                <default>false</default>
+                <label>cccc</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

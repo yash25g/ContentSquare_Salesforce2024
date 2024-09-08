@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LossReasonRenewalOnly</fullName>
+    <active>true</active>
+    <description>Reasons below can only be chosen when Opportunity type = Renewal</description>
+    <errorConditionFormula>AND($Permission.ByPassVR = false,
+    NOT(ISPICKVAL(Type, &quot;Renewal&quot;)),
+    OR(
+        ISPICKVAL(LossReason__c, &quot;Product Fit&quot;),
+        ISPICKVAL(LossReason__c, &quot;Customer Org&quot;),
+        ISPICKVAL(LossReason__c, &quot;Value&quot;),
+        ISPICKVAL(LossReason__c, &quot;Intimacy&quot;),
+        ISPICKVAL(LossReason__c, &quot;Deal scoping&quot;)
+    )
+)</errorConditionFormula>
+    <errorMessage>The selected Loss Reason can only be chosen when the Opportunity Type is Renewal.</errorMessage>
+</ValidationRule>

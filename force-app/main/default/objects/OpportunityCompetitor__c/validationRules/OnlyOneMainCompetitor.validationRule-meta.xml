@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OnlyOneMainCompetitor</fullName>
+    <active>true</active>
+    <description>Only one main competitor can be selected on an active opportunity</description>
+    <errorConditionFormula>AND(
+$Permission.ByPassVR = false,
+    PrimaryCompetitor__c,
+    Opportunity__r.PrimaryCompetitorDefined__c &gt; 0
+)</errorConditionFormula>
+    <errorMessage>You can only have one main competitor per opportunity.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LeadSourceCategory__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF (
+OR(
+ISPICKVAL(LeadSource,&quot;Direct Mail&quot;),
+ISPICKVAL(LeadSource,&quot;Email&quot;),
+ISPICKVAL(LeadSource,&quot;Event&quot;),
+ISPICKVAL(LeadSource,&quot;Paid Media&quot;),
+ISPICKVAL(LeadSource,&quot;Website&quot;),
+ISPICKVAL(LeadSource,&quot;Product&quot;),
+ISPICKVAL(LeadSourceDetailRecent__c ,&quot;Champify&quot;),
+ISPICKVAL(LeadSourceDetailRecent__c ,&quot;Clicktale&quot;),
+ISPICKVAL(LeadSourceDetailRecent__c ,&quot;GainSight&quot;),
+ISPICKVAL(LeadSourceDetailRecent__c ,&quot;Marketing referral&quot;),
+ISPICKVAL(LeadSourceDetailRecent__c ,&quot;Referral&quot;)), &quot;INBOUND&quot;,
+
+IF(
+ISPICKVAL(LeadSourceDetailRecent__c ,&quot;Unknown&quot;),&quot;UNKNOWN&quot;,
+
+
+IF(
+OR(
+ISPICKVAL(LeadSource,&quot;Sales Sourced&quot;),
+ISPICKVAL(LeadSource,&quot;SDR Sourced&quot;),
+ISPICKVAL(LeadSourceDetailRecent__c,&quot;Deal Reg&quot;)), &quot;OUTBOUND&quot;,&quot;&quot; )))</formula>
+    <inlineHelpText>Category based on &quot;lead source recent&quot;</inlineHelpText>
+    <label>Lead Source Category</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

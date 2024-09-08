@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PreventBeingWorkedToMQL</fullName>
+    <active>true</active>
+    <description>Avoid lead status de be changed from BeingWorked to MQL
+Empêche le statut d&apos;un lead d&apos;être changé de BeingWorked à MQL.</description>
+    <errorConditionFormula>AND(
+    ISPICKVAL(Status, &quot;MQL&quot;),
+    ISPICKVAL(PRIORVALUE(Status), &quot;Being Worked&quot;),
+$Permission.ByPassVR = false
+)</errorConditionFormula>
+    <errorMessage>You can&apos;t change the status Being Worked to MQL.</errorMessage>
+</ValidationRule>

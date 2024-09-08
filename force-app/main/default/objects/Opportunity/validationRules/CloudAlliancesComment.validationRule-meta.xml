@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CloudAlliancesComment</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( $Permission.ByPassVR = false,
+
+ Ispickval(AlignmentWithCloud__c, &quot;Other&quot;), 
+
+ISBLANK( AlignmentWithCloudComment__c ))</errorConditionFormula>
+    <errorDisplayField>AlignmentWithCloudComment__c</errorDisplayField>
+    <errorMessage>if “Alignment with Cloud”  = Other, a comment is mandatory</errorMessage>
+</ValidationRule>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CountryValidationRule</fullName>
+    <active>true</active>
+    <description>Mandates the population of the Country Field</description>
+    <errorConditionFormula>AND(ISBLANK(Country),!$Permission.ByPassVR)</errorConditionFormula>
+    <errorDisplayField>Country</errorDisplayField>
+    <errorMessage>Please populate the Lead Country</errorMessage>
+</ValidationRule>

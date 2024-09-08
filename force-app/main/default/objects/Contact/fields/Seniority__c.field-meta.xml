@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Seniority__c</fullName>
+    <description>Seniority of the contact</description>
+    <externalId>false</externalId>
+    <label>Seniority</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Agency/Partner</fullName>
+                <default>false</default>
+                <label>Agency/Partner</label>
+            </value>
+            <value>
+                <fullName>Assistant</fullName>
+                <default>false</default>
+                <label>Assistant</label>
+            </value>
+            <value>
+                <fullName>CXO - Board Member</fullName>
+                <default>false</default>
+                <label>CXO - Board Member</label>
+            </value>
+            <value>
+                <fullName>Director</fullName>
+                <default>false</default>
+                <label>Director</label>
+            </value>
+            <value>
+                <fullName>Manager</fullName>
+                <default>false</default>
+                <label>Manager</label>
+            </value>
+            <value>
+                <fullName>Senior Manager</fullName>
+                <default>false</default>
+                <label>Senior Manager</label>
+            </value>
+            <value>
+                <fullName>Student/Intern</fullName>
+                <default>false</default>
+                <label>Student/Intern</label>
+            </value>
+            <value>
+                <fullName>SVP / VP</fullName>
+                <default>false</default>
+                <label>SVP / VP</label>
+            </value>
+            <value>
+                <fullName>Individual Contributor</fullName>
+                <default>false</default>
+                <label>Individual Contributor</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

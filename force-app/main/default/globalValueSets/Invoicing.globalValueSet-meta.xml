@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Yearly upfront</fullName>
+        <default>false</default>
+        <label>Yearly upfront</label>
+    </customValue>
+    <customValue>
+        <fullName>Quarterly upfront</fullName>
+        <default>false</default>
+        <label>Quarterly upfront</label>
+    </customValue>
+    <customValue>
+        <fullName>Twice yearly</fullName>
+        <default>false</default>
+        <label>Twice yearly</label>
+    </customValue>
+    <customValue>
+        <fullName>Specific</fullName>
+        <default>false</default>
+        <label>Specific</label>
+    </customValue>
+    <masterLabel>Invoicing</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

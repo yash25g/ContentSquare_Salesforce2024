@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RestrictLossReasonByStage</fullName>
+    <active>true</active>
+    <description>Restrict certain loss reasons to specific stages.</description>
+    <errorConditionFormula>AND(
+$Permission.ByPassVR = false,
+    NOT(ISPICKVAL(LossReason__c, &quot;Disqualified&quot;)),
+    ISCHANGED(LossReason__c),
+    ISPICKVAL(StageName, &quot;Closed Lost&quot;),
+    
+        OR(
+            NOT(ISPICKVAL(PRIORVALUE(StageName), &quot;2- Sales Accepted&quot;)),
+           NOT(ISPICKVAL(PRIORVALUE(StageName), &quot;3- Qualified&quot;)),
+           NOT(ISPICKVAL(PRIORVALUE(StageName), &quot;4- Selection Started&quot;)),
+            NOT(ISPICKVAL(PRIORVALUE(StageName), &quot;5- Value Proven&quot;)),
+            NOT(ISPICKVAL(PRIORVALUE(StageName), &quot;6- Preferred Vendor&quot;)),
+            NOT(ISPICKVAL(PRIORVALUE(StageName), &quot;7- Business Win&quot;))
+        )
+    )</errorConditionFormula>
+    <errorMessage>Loss reasons (except disqualified) can only be chosen if the previous stage is Stage 2, 3, 4, 5, 6, or 7</errorMessage>
+</ValidationRule>

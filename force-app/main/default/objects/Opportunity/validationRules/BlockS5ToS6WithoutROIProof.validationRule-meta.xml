@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BlockS5ToS6WithoutROIProof</fullName>
+    <active>true</active>
+    <description>You cannot move from S5 to S6 without filling out the ROI Case and Proof of Value.</description>
+    <errorConditionFormula>AND($Permission.ByPassVR = false,
+    ISPICKVAL(StageName, &quot;6- Preferred Vendor&quot;), 
+    ISPICKVAL(PRIORVALUE(StageName), &quot;5- Value Proven&quot;),
+    OR(
+ISPICKVAL(ROICase__c, &quot;&quot;),
+        ISBLANK(ProofOfValue__c)
+    )
+)</errorConditionFormula>
+    <errorMessage>You cannot move from S5 to S6 without filling out the ROI Case and Proof of Value.</errorMessage>
+</ValidationRule>

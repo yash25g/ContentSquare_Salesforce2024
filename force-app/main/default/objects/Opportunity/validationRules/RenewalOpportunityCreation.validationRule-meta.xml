@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RenewalOpportunityCreation</fullName>
+    <active>true</active>
+    <description>For Fast Track record type, only some populations can create a Renewal opportunity type (Business ops / Business Partner).</description>
+    <errorConditionFormula>AND( $Permission.ByPassVR = false,
+OR(
+$Permission.BusinessPartnerUser = false,  $Permission.BusinessOperationUser = false),
+ISNEW() = true,
+RecordType.DeveloperName = &quot;FastTrackOpportunity&quot;,
+ISPICKVAL( Type, &quot;Renewal&quot;))</errorConditionFormula>
+    <errorMessage>Only Business Partner or Business Operation users can create Renewal Opportunities</errorMessage>
+</ValidationRule>

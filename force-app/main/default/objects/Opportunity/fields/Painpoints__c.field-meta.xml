@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Painpoints__c</fullName>
+    <externalId>false</externalId>
+    <label>Pain points</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Customer Satisfaction, Retention, or Loyalty</fullName>
+                <default>false</default>
+                <label>Customer Satisfaction, Retention, or Loyalty</label>
+            </value>
+            <value>
+                <fullName>Digital transformation</fullName>
+                <default>false</default>
+                <label>Digital transformation</label>
+            </value>
+            <value>
+                <fullName>Marketing and Acquisition</fullName>
+                <default>false</default>
+                <label>Marketing and Acquisition</label>
+            </value>
+            <value>
+                <fullName>Merchandising &amp; pricing strategy</fullName>
+                <default>false</default>
+                <label>Merchandising &amp; pricing strategy</label>
+            </value>
+            <value>
+                <fullName>Mobile App CX</fullName>
+                <default>false</default>
+                <label>Mobile App CX</label>
+            </value>
+            <value>
+                <fullName>Operational efficiency</fullName>
+                <default>false</default>
+                <label>Operational efficiency</label>
+            </value>
+            <value>
+                <fullName>Speed &amp; performance</fullName>
+                <default>false</default>
+                <label>Speed &amp; performance</label>
+            </value>
+            <value>
+                <fullName>Troubleshooting</fullName>
+                <default>false</default>
+                <label>Troubleshooting</label>
+            </value>
+            <value>
+                <fullName>UX &amp; Digital products</fullName>
+                <default>false</default>
+                <label>UX &amp; Digital products</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

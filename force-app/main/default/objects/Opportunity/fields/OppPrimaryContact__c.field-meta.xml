@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OppPrimaryContact__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Opportunity main contact</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Indicate primary contact when opp is created.</inlineHelpText>
+    <label>Opp primary contact</label>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Opportunities</relationshipLabel>
+    <relationshipName>Opportunities</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

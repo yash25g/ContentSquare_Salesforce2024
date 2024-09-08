@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PartnerSalesOfTerritory__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Partner Sales linked to the Territory of the Account</description>
+    <externalId>false</externalId>
+    <label>Partner Sales attached to Territory</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Leads1</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LossReason__c</fullName>
+    <externalId>false</externalId>
+    <label>Loss reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Project cancelled</fullName>
+                <default>false</default>
+                <label>Project cancelled</label>
+            </value>
+            <value>
+                <fullName>Unqualified / not in our target market</fullName>
+                <default>false</default>
+                <label>Unqualified / not in our target market</label>
+            </value>
+            <value>
+                <fullName>Unresponsive</fullName>
+                <default>false</default>
+                <label>Unresponsive</label>
+            </value>
+            <value>
+                <fullName>Functionality</fullName>
+                <default>false</default>
+                <label>Functionality</label>
+            </value>
+            <value>
+                <fullName>Use case</fullName>
+                <default>false</default>
+                <label>Use case</label>
+            </value>
+            <value>
+                <fullName>Not a good time / revisit later</fullName>
+                <default>false</default>
+                <label>Not a good time / revisit later</label>
+            </value>
+            <value>
+                <fullName>Lack of budget / revisit later</fullName>
+                <default>false</default>
+                <label>Lack of budget / revisit later</label>
+            </value>
+            <value>
+                <fullName>Price vs. perceived value</fullName>
+                <default>false</default>
+                <label>Price vs. perceived value</label>
+            </value>
+            <value>
+                <fullName>Financial reasons</fullName>
+                <default>false</default>
+                <label>Financial reasons</label>
+            </value>
+            <value>
+                <fullName>Security, Legal Compliance</fullName>
+                <default>false</default>
+                <label>Security, Legal Compliance</label>
+            </value>
+            <value>
+                <fullName>Disqualified</fullName>
+                <default>false</default>
+                <label>Disqualified</label>
+            </value>
+            <value>
+                <fullName>Product Fit</fullName>
+                <default>false</default>
+                <label>Product Fit</label>
+            </value>
+            <value>
+                <fullName>Customer Org</fullName>
+                <default>false</default>
+                <label>Customer Org</label>
+            </value>
+            <value>
+                <fullName>Value</fullName>
+                <default>false</default>
+                <label>Value</label>
+            </value>
+            <value>
+                <fullName>Intimacy</fullName>
+                <default>false</default>
+                <label>Intimacy</label>
+            </value>
+            <value>
+                <fullName>Deal scoping</fullName>
+                <default>false</default>
+                <label>Deal scoping</label>
+            </value>
+            <value>
+                <fullName>Duplicate Opportunity</fullName>
+                <default>false</default>
+                <label>Duplicate Opportunity</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

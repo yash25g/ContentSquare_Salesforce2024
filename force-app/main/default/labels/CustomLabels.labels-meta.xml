@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>AccessDeniedError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Access Denied Error</shortDescription>
+        <value>You don&apos;t have required access to change the record type.</value>
+    </labels>
+    <labels>
+        <fullName>AdditionalContractConfirmationMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Additional Contract Confirmation Message</shortDescription>
+        <value>You are about to add a contract sharing post-booking process. This action requires that the main contract includes Ship-to Account coverage.
+Are you sure you want to proceed?</value>
+    </labels>
+    <labels>
+        <fullName>BusinessAccountRecordType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Business Account Record Type</shortDescription>
+        <value>BusinessAccount</value>
+    </labels>
+    <labels>
+        <fullName>BusinessContactRecordType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Business Contact Record Type</shortDescription>
+        <value>BusinessContact</value>
+    </labels>
+    <labels>
+        <fullName>ContractSharingPermissionDeniedMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Additional Contract Sharing Permission Denied Message</shortDescription>
+        <value>You are not allowed to perform this action. Please contact Deal Desk, Business Ops or Business Partner</value>
+    </labels>
+    <labels>
+        <fullName>Enterprise</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Enterprise</shortDescription>
+        <value>Enterprise</value>
+    </labels>
+    <labels>
+        <fullName>ErrorMessageForScreenFlow</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Message For Screen Flow</shortDescription>
+        <value>Something went wrong. Please contact the system administrator.</value>
+    </labels>
+    <labels>
+        <fullName>FastTrackOppRecordType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Fast Track Opp Record Type</shortDescription>
+        <value>FastTrackOpportunity</value>
+    </labels>
+    <labels>
+        <fullName>InvalidWorkdayReferenceId</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Invalid Workday Reference Id</shortDescription>
+        <value>Workday Reference Id field value should contain a valid Opportunity Id</value>
+    </labels>
+    <labels>
+        <fullName>LimitPreviousContractCancelReplaceRenewalError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Limit Previous Contract Cancel Replace Renewal Error</shortDescription>
+        <value>Only 1 Previous Contract is allowed for a Renewal Opportunity when &apos;Cancel &amp; Replace&apos; is set on any Previous Contracts to Yes Or when Extension is set for Opportunity.</value>
+    </labels>
+    <labels>
+        <fullName>MidMarket</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MidMarket</shortDescription>
+        <value>Mid market</value>
+    </labels>
+    <labels>
+        <fullName>NextStepNoteTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Next Step Note Title</shortDescription>
+        <value>Next steps History</value>
+    </labels>
+    <labels>
+        <fullName>OpenRecordMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Open Record Message</shortDescription>
+        <value>Click here to open the record</value>
+    </labels>
+    <labels>
+        <fullName>OpportunityRecordTypeChangeWarning</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opportunity Record Type Change Warning</shortDescription>
+        <value>If you select the Standard process, please note that the opportunity&apos;s status will be set to S3.</value>
+    </labels>
+    <labels>
+        <fullName>PartnerAccountRecordType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Partner Account Record Type</shortDescription>
+        <value>PartnerAccount</value>
+    </labels>
+    <labels>
+        <fullName>PermissionDeniedErrorMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Permission Denied Error Msg</shortDescription>
+        <value>You don&apos;t have permission to perform this action. Please contact your administrator.</value>
+    </labels>
+    <labels>
+        <fullName>PreventConcurrentRipAndCancelReplaceForRenewal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Prevent Concurrent Rip And Cancel Replace For Renewal</shortDescription>
+        <value>For Renewal Opportunity both Is concerned by Rip &amp; Replace and Is concerned by Cancel &amp; Replace can’t be set at the same time.</value>
+    </labels>
+    <labels>
+        <fullName>PurgeLogsExceedingXDays</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Purge Logs Exceeding X Days</shortDescription>
+        <value>-30</value>
+    </labels>
+    <labels>
+        <fullName>RecordTypeChangedMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Record Type Changed Message</shortDescription>
+        <value>Opportunity record type is changed successfully.</value>
+    </labels>
+    <labels>
+        <fullName>RecordsCreatedSuccessfully</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Records Created Successfully</shortDescription>
+        <value>Records Created Successfully!</value>
+    </labels>
+    <labels>
+        <fullName>SDRUser</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SDRUser</shortDescription>
+        <value>SDRUser</value>
+    </labels>
+    <labels>
+        <fullName>SalesLeadRecordType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales Lead Record Type</shortDescription>
+        <value>SalesLead</value>
+    </labels>
+    <labels>
+        <fullName>Smb</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Smb</shortDescription>
+        <value>SMB</value>
+    </labels>
+    <labels>
+        <fullName>StandardOpportunityRecordTypeName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Standard Opportunity Record Type Name</shortDescription>
+        <value>StandardOpportunity</value>
+    </labels>
+    <labels>
+        <fullName>UltimateAccountRecordType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Ultimate Account Record Type</shortDescription>
+        <value>UltimateAccount</value>
+    </labels>
+    <labels>
+        <fullName>WorkdayContractRecordType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Workday Contract Record Type</shortDescription>
+        <value>WorkdayContract</value>
+    </labels>
+    <labels>
+        <fullName>WorkdayGroupContractRecordType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Workday Group Contract Record Type</shortDescription>
+        <value>WorkdayGroupContract</value>
+    </labels>
+    <labels>
+        <fullName>WrongFormatForOppName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Wrong Format For Opp Name</shortDescription>
+        <value>Wrong format for the opportunity name</value>
+    </labels>
+</CustomLabels>

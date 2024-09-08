@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ProofOfValue__c</fullName>
+    <description>Mandatory if ROI case is &quot;NO&quot; to move to next stage (#5- Preferred Vendor)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Describe in few words. Mandatory if ROI case is &quot;N&quot; to move to next stage (#5- Preferred Vendor)</inlineHelpText>
+    <label>Proof of value</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

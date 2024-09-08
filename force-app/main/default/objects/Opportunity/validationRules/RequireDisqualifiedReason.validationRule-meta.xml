@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequireDisqualifiedReason</fullName>
+    <active>true</active>
+    <description>loss reason = “Disqualified”, when I save, then I want to be blocked if “Disqualified reason” is empty.</description>
+    <errorConditionFormula>AND($Permission.ByPassVR = false,
+    ISPICKVAL(LossReason__c, &quot;Disqualified&quot;),
+    ISBLANK(TEXT(DisqualifiedReason__c))
+)</errorConditionFormula>
+    <errorMessage>A disqualified reason is required when the loss reason is set to &quot;Disqualified&quot;.</errorMessage>
+</ValidationRule>

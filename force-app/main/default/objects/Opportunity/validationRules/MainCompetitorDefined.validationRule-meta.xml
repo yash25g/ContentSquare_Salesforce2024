@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MainCompetitorDefined</fullName>
+    <active>true</active>
+    <description>In Standard process only, a Main competitor is required to move to Stage 6</description>
+    <errorConditionFormula>AND( 
+$Permission.ByPassVR = false,
+RecordType.DeveloperName = &quot;StandardOpportunity&quot;,
+ISPICKVAL( StageName, &quot;6- Preferred Vendor&quot;), 
+PrimaryCompetitorDefined__c = 0)</errorConditionFormula>
+    <errorMessage>In Standard sales process, a main competitor is required to move to Stage 6</errorMessage>
+</ValidationRule>

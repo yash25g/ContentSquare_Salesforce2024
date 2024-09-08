@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RestrictUpdationOfRegionAndGeograph</fullName>
+    <active>true</active>
+    <description>Restricts updation of Region and Geography if Country is not updated</description>
+    <errorConditionFormula>AND
+( 
+     OR(ISCHANGED(Geography__c), ISCHANGED(Region__c)),
+     !ISCHANGED(Country),
+     !$Permission.ByPassVR
+)</errorConditionFormula>
+    <errorMessage>You can&apos;t update Region/Geography.</errorMessage>
+</ValidationRule>

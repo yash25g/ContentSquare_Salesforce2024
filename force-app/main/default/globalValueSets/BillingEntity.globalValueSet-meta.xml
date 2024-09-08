@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Clicktale Inc.</fullName>
+        <default>false</default>
+        <label>Clicktale Inc.</label>
+    </customValue>
+    <customValue>
+        <fullName>Clicktale UK Ltd</fullName>
+        <default>false</default>
+        <label>Clicktale UK Ltd</label>
+    </customValue>
+    <customValue>
+        <fullName>Content Square GmbH</fullName>
+        <default>false</default>
+        <label>Content Square GmbH</label>
+    </customValue>
+    <customValue>
+        <fullName>Content Square Inc.</fullName>
+        <default>false</default>
+        <label>Content Square Inc.</label>
+    </customValue>
+    <customValue>
+        <fullName>Content Square Israel Ltd</fullName>
+        <default>false</default>
+        <label>Content Square Israel Ltd</label>
+    </customValue>
+    <customValue>
+        <fullName>Content Square Ltd.</fullName>
+        <default>false</default>
+        <label>Content Square Ltd.</label>
+    </customValue>
+    <customValue>
+        <fullName>Content Square SAS</fullName>
+        <default>false</default>
+        <label>Content Square SAS</label>
+    </customValue>
+    <customValue>
+        <fullName>Content Square Singapore PTE Ltd</fullName>
+        <default>false</default>
+        <label>Content Square Singapore PTE Ltd</label>
+    </customValue>
+    <masterLabel>Billing entity</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

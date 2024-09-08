@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequireFieldsOnS7ToClosedWon</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND($Permission.ByPassVR = false,
+    ISPICKVAL(StageName, &quot;Closed Won&quot;),
+    ISPICKVAL(PRIORVALUE(StageName), &quot;7- Business Win&quot;),
+    OR(
+        ISBLANK(WinReason__c),
+        ISBLANK(WhyContentsquare__c),
+        ISPICKVAL(Invoicing__c, &quot;&quot;),
+        ISPICKVAL(Payment_Terms__c, &quot;&quot;),
+        ISBLANK(Billing_Contact__c),
+        ISBLANK(Billing_Email__c),
+        ISBLANK(Domains__c)
+    )
+)</errorConditionFormula>
+    <errorMessage>All of the following fields must be filled in before moving from S7 to Closed Won: Win Reason, Why Contentsquare, Invoicing, Payment Terms, Billing Contact, Billing Email, Domains.</errorMessage>
+</ValidationRule>

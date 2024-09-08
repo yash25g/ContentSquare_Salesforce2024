@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LeadSourceDetailRecent__c</fullName>
+    <description>Custom field representing the most recent lead source detail</description>
+    <externalId>false</externalId>
+    <label>Lead Source Detail Recent</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>LeadSource</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Internal</fullName>
+                <default>false</default>
+                <label>Internal</label>
+            </value>
+            <value>
+                <fullName>Seminar</fullName>
+                <default>false</default>
+                <label>Seminar</label>
+            </value>
+            <value>
+                <fullName>Conference</fullName>
+                <default>false</default>
+                <label>Conference</label>
+            </value>
+            <value>
+                <fullName>Networking</fullName>
+                <default>false</default>
+                <label>Networking</label>
+            </value>
+            <value>
+                <fullName>Trade Show</fullName>
+                <default>false</default>
+                <label>Trade Show</label>
+            </value>
+            <value>
+                <fullName>Webinar</fullName>
+                <default>false</default>
+                <label>Webinar</label>
+            </value>
+            <value>
+                <fullName>Champify</fullName>
+                <default>false</default>
+                <label>Champify</label>
+            </value>
+            <value>
+                <fullName>Clicktale</fullName>
+                <default>false</default>
+                <label>Clicktale</label>
+            </value>
+            <value>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+                <label>Unknown</label>
+            </value>
+            <value>
+                <fullName>GainSight</fullName>
+                <default>false</default>
+                <label>GainSight</label>
+            </value>
+            <value>
+                <fullName>Marketing referral</fullName>
+                <default>false</default>
+                <label>Marketing referral</label>
+            </value>
+            <value>
+                <fullName>Display</fullName>
+                <default>false</default>
+                <label>Display</label>
+            </value>
+            <value>
+                <fullName>Content Syndication</fullName>
+                <default>false</default>
+                <label>Content Syndication</label>
+            </value>
+            <value>
+                <fullName>Paid Email</fullName>
+                <default>false</default>
+                <label>Paid Email</label>
+            </value>
+            <value>
+                <fullName>Paid Search</fullName>
+                <default>false</default>
+                <label>Paid Search</label>
+            </value>
+            <value>
+                <fullName>G2</fullName>
+                <default>false</default>
+                <label>G2</label>
+            </value>
+            <value>
+                <fullName>Paid Social</fullName>
+                <default>false</default>
+                <label>Paid Social</label>
+            </value>
+            <value>
+                <fullName>Deal Reg</fullName>
+                <default>false</default>
+                <label>Deal Reg</label>
+            </value>
+            <value>
+                <fullName>Referral</fullName>
+                <default>false</default>
+                <label>Referral</label>
+            </value>
+            <value>
+                <fullName>In App</fullName>
+                <default>false</default>
+                <label>In App</label>
+            </value>
+            <value>
+                <fullName>Client referral</fullName>
+                <default>false</default>
+                <label>Client referral</label>
+            </value>
+            <value>
+                <fullName>Cold Call</fullName>
+                <default>false</default>
+                <label>Cold Call</label>
+            </value>
+            <value>
+                <fullName>Personal Contact</fullName>
+                <default>false</default>
+                <label>Personal Contact</label>
+            </value>
+            <value>
+                <fullName>Cognism</fullName>
+                <default>false</default>
+                <label>Cognism</label>
+            </value>
+            <value>
+                <fullName>Datanyze</fullName>
+                <default>false</default>
+                <label>Datanyze</label>
+            </value>
+            <value>
+                <fullName>IKO</fullName>
+                <default>false</default>
+                <label>IKO</label>
+            </value>
+            <value>
+                <fullName>Apollo</fullName>
+                <default>false</default>
+                <label>Apollo</label>
+            </value>
+            <value>
+                <fullName>LinkedIn Navigator</fullName>
+                <default>false</default>
+                <label>LinkedIn Navigator</label>
+            </value>
+            <value>
+                <fullName>Lusha</fullName>
+                <default>false</default>
+                <label>Lusha</label>
+            </value>
+            <value>
+                <fullName>Zoominfo</fullName>
+                <default>false</default>
+                <label>Zoominfo</label>
+            </value>
+            <value>
+                <fullName>Direct</fullName>
+                <default>false</default>
+                <label>Direct</label>
+            </value>
+            <value>
+                <fullName>Blog</fullName>
+                <default>false</default>
+                <label>Blog</label>
+            </value>
+            <value>
+                <fullName>Demo Request</fullName>
+                <default>false</default>
+                <label>Demo Request</label>
+            </value>
+            <value>
+                <fullName>Contact Sales</fullName>
+                <default>false</default>
+                <label>Contact Sales</label>
+            </value>
+            <value>
+                <fullName>On Demand Demo</fullName>
+                <default>false</default>
+                <label>On Demand Demo</label>
+            </value>
+            <value>
+                <fullName>Content</fullName>
+                <default>false</default>
+                <label>Content</label>
+            </value>
+            <value>
+                <fullName>DiscoverOrg</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>DiscoverOrg</label>
+            </value>
+            <value>
+                <fullName>LeadIQ</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>LeadIQ</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>SDR Sourced</controllingFieldValue>
+            <valueName>Cognism</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SDR Sourced</controllingFieldValue>
+            <valueName>Datanyze</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SDR Sourced</controllingFieldValue>
+            <valueName>IKO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SDR Sourced</controllingFieldValue>
+            <valueName>Apollo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SDR Sourced</controllingFieldValue>
+            <valueName>LinkedIn Navigator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SDR Sourced</controllingFieldValue>
+            <valueName>Lusha</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SDR Sourced</controllingFieldValue>
+            <valueName>Zoominfo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partner</controllingFieldValue>
+            <valueName>Deal Reg</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partner</controllingFieldValue>
+            <valueName>Referral</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Event</controllingFieldValue>
+            <valueName>Internal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Event</controllingFieldValue>
+            <valueName>Seminar</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Event</controllingFieldValue>
+            <valueName>Conference</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Event</controllingFieldValue>
+            <valueName>Networking</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Event</controllingFieldValue>
+            <valueName>Trade Show</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Event</controllingFieldValue>
+            <valueName>Webinar</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Website</controllingFieldValue>
+            <valueName>Direct</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Website</controllingFieldValue>
+            <valueName>Blog</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Website</controllingFieldValue>
+            <valueName>Demo Request</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Website</controllingFieldValue>
+            <valueName>Contact Sales</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Website</controllingFieldValue>
+            <valueName>On Demand Demo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Website</controllingFieldValue>
+            <valueName>Content</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>Champify</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>Clicktale</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>Unknown</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>GainSight</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>Marketing referral</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Paid Media</controllingFieldValue>
+            <valueName>Display</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Paid Media</controllingFieldValue>
+            <valueName>Content Syndication</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Paid Media</controllingFieldValue>
+            <valueName>Paid Email</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Paid Media</controllingFieldValue>
+            <valueName>Paid Search</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Paid Media</controllingFieldValue>
+            <valueName>G2</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Paid Media</controllingFieldValue>
+            <valueName>Paid Social</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>In App</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sales Sourced</controllingFieldValue>
+            <valueName>Client referral</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sales Sourced</controllingFieldValue>
+            <valueName>Cold Call</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sales Sourced</controllingFieldValue>
+            <valueName>Personal Contact</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

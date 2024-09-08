@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <assignments>
+        <name>Set_Cascading_Pending_To_True</name>
+        <label>Set Cascading Pending To True</label>
+        <locationX>1110</locationX>
+        <locationY>552</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.CascadingPending__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_Child_Segment_Lower_than_Parent</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Root_Account_Field</name>
+        <label>Set Root Account Field</label>
+        <locationX>266</locationX>
+        <locationY>564</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.RootAccount__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>CalculateRootParentFieldValue</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Set_Ultimate_Account_Field</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Ultimate_Account_Field</name>
+        <label>Set Ultimate Account Field</label>
+        <locationX>302</locationX>
+        <locationY>911</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.UltimateAccount__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>CalculateUltimateAccounttFieldValue</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Update_Business_Segment_Of_Account</name>
+        <label>Update Business Segment Of Account</label>
+        <locationX>663</locationX>
+        <locationY>809</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.BusinessReviewSegment__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Parent.BusinessReviewSegment__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Set_Root_Account_Field</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Is_Child_Segment_Lower_than_Parent</name>
+        <label>Is Child Segment Lower than Parent</label>
+        <locationX>864</locationX>
+        <locationY>657</locationY>
+        <defaultConnector>
+            <targetReference>Set_Root_Account_Field</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>RecordSegmentValue</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <elementReference>ParentSegmentValue</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Business_Segment_Of_Account</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Parent_Account_Updated</name>
+        <label>Is Parent Account Updated?</label>
+        <locationX>865</locationX>
+        <locationY>478</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ParentId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Cascading_Pending_To_True</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Trigger_Context</name>
+        <label>Trigger Context?</label>
+        <locationX>572</locationX>
+        <locationY>335</locationY>
+        <defaultConnector>
+            <targetReference>Is_Parent_Account_Updated</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Is Update</defaultConnectorLabel>
+        <rules>
+            <name>Is_Insert</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Root_Account_Field</targetReference>
+            </connector>
+            <label>Is Insert</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <description>Calculates the value of the root parent</description>
+        <name>CalculateRootParentFieldValue</name>
+        <dataType>String</dataType>
+        <expression>IF( ISBLANK({!$Record.ParentId}), NULL, IF( ISBLANK({!$Record.Parent.RootAccount__c}), {!$Record.ParentId}, {!$Record.Parent.RootAccount__c} ) )</expression>
+    </formulas>
+    <formulas>
+        <description>Calculates the value of the Ultimate Account</description>
+        <name>CalculateUltimateAccounttFieldValue</name>
+        <dataType>String</dataType>
+        <expression>IF( ISBLANK({!$Record.ParentId}), NULL, IF( ISBLANK({!$Record.Parent.UltimateAccount__c}),( IF(  {!$Record.Parent.RecordType.DeveloperName} = {!$Label.UltimateAccountRecordType}, {!$Record.ParentId}, NULL ) ), {!$Record.Parent.UltimateAccount__c} ) )</expression>
+    </formulas>
+    <formulas>
+        <name>ParentSegmentValue</name>
+        <dataType>Number</dataType>
+        <expression>IF( (ISPICKVAL({!$Record.Parent.BusinessReviewSegment__c}, &apos;Enterprise&apos; )),  3, 
+    IF( (ISPICKVAL({!$Record.Parent.BusinessReviewSegment__c}, &apos;Mid market&apos; )),  2, 1) 
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>RecordSegmentValue</name>
+        <dataType>Number</dataType>
+        <expression>IF( (ISPICKVAL({!$Record.BusinessReviewSegment__c}, &apos;Enterprise&apos; )),  3, 
+    IF( (ISPICKVAL({!$Record.BusinessReviewSegment__c}, &apos;Mid market&apos; )),  2, 1) 
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <interviewLabel>Account - Populate parent account fields {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account - Populate parent account fields</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>446</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Trigger_Context</targetReference>
+        </connector>
+        <filterFormula>NOT({!$Permission.ByPassFlow})</filterFormula>
+        <object>Account</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

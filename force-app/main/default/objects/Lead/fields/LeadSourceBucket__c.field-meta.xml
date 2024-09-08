@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LeadSourceBucket__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF (
+OR(
+ISPICKVAL(LeadSource,&quot;Direct Mail&quot;),
+ISPICKVAL(LeadSource,&quot;Email&quot;),
+ISPICKVAL(LeadSource,&quot;Event&quot;),
+ISPICKVAL(LeadSource,&quot;Event&quot;),
+ISPICKVAL(LeadSource,&quot;Paid Media&quot;),
+ISPICKVAL(LeadSource,&quot;Website&quot;),
+ISPICKVAL(LeadSourceDetailRecent__c ,&quot;Champify&quot;),
+ISPICKVAL(LeadSourceDetailRecent__c ,&quot;Clicktale&quot;),
+ISPICKVAL(LeadSourceDetailRecent__c ,&quot;Marketing referral&quot;)), &quot;MARKETING&quot;,
+
+IF(
+OR(
+ISPICKVAL(LeadSourceDetailRecent__c ,&quot;Unknown&quot;),
+ISPICKVAL(LeadSourceDetailRecent__c ,&quot;GainSight&quot;)), &quot;UNKNOWN&quot;,
+
+IF(ISPICKVAL(LeadSource,&quot;Partner&quot;), &quot;PARTNER&quot;,
+
+
+IF(ISPICKVAL(LeadSource,&quot;Product&quot;), &quot;PRODUCT&quot;,
+
+IF(ISPICKVAL(LeadSource,&quot;Sales Sourced&quot;), &quot;SALES&quot;,
+
+IF(ISPICKVAL(LeadSource,&quot;SDR Sourced&quot;), &quot;SDR&quot;,&quot;&quot;))))))</formula>
+    <inlineHelpText>Bucket based on &quot;lead source recent&quot;</inlineHelpText>
+    <label>Lead Source Bucket</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

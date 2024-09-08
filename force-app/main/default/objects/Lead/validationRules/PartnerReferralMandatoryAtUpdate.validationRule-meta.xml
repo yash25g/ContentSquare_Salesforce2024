@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PartnerReferralMandatoryAtUpdate</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()) ,
+ $Permission.ByPassVR = false,
+ISBLANK( PartnerReferral__c ),
+ISPICKVAL(   LeadSource  , &quot;Partner&quot;))</errorConditionFormula>
+    <errorDisplayField>PartnerReferral__c</errorDisplayField>
+    <errorMessage>A Partner Referral is mandatory in case of Partner lead source recent</errorMessage>
+</ValidationRule>

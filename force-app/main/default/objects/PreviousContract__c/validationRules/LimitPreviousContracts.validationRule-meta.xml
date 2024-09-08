@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LimitPreviousContracts</fullName>
+    <active>true</active>
+    <description>Limits Previous Contracts to only one when Opportunity is Renewal and extension is set.</description>
+    <errorConditionFormula>AND(NOT($Permission.ByPassVR),ISPICKVAL( Opportunity__r.Type ,&apos;Renewal&apos;),
+ISPICKVAL(Opportunity__r.Extension__c ,&apos;Yes&apos;),
+OR( AND(Opportunity__r.PreviousContracts__c &gt;=1, ISNEW()),
+    AND(Opportunity__r.PreviousContracts__c &gt;1, !ISNEW()))
+)</errorConditionFormula>
+    <errorMessage>Only one Previous Contract can be created for Renewal opportunity when Extension is set for Opportunity.</errorMessage>
+</ValidationRule>

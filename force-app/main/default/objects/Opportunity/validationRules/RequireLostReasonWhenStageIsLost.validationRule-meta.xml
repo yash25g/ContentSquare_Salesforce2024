@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequireLostReasonWhenStageIsLost</fullName>
+    <active>true</active>
+    <description>Require_Lost_Reason_When_Stage_Is_Lost</description>
+    <errorConditionFormula>AND($Permission.ByPassVR = false,
+    ISPICKVAL(StageName, &quot;Lost&quot;),
+    ISBLANK(TEXT(LossReason__c))
+)</errorConditionFormula>
+    <errorMessage>Please select a Loss Reason before saving an opportunity with the stage &apos;Lost&apos;.</errorMessage>
+</ValidationRule>

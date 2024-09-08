@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CascadingPending__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates if we have to process all descendant accounts of this account to cascade Segment/ Root Parent/ Ultimate Account details.</description>
+    <externalId>false</externalId>
+    <label>Cascading Pending</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

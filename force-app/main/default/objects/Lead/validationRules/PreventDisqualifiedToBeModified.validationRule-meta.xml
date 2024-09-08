@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PreventDisqualifiedToBeModified</fullName>
+    <active>true</active>
+    <description>The status Disqualified can&apos;t be change anymore.</description>
+    <errorConditionFormula>AND(
+    ISCHANGED(Status),
+    ISPICKVAL(PRIORVALUE(Status), &quot;Disqualified&quot;),
+$Permission.ByPassVR = false
+)</errorConditionFormula>
+    <errorMessage>You can&apos;t change the status Disqualified.</errorMessage>
+</ValidationRule>

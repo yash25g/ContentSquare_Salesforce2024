@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DataRetentionSessionReplayDays__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>The default is 30 days. Can be extended for an additional fee</inlineHelpText>
+    <label>Data retention - Session Replay (days)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

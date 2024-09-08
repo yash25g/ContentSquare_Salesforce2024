@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Basic access to Opportunity Competitors fields</description>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>OpportunityCompetitor__c.Competitor__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>OpportunityCompetitor__c.PrimaryCompetitor__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>OpportunityCompetitors_Fields_FLSStandardPermissions</label>
+</PermissionSet>

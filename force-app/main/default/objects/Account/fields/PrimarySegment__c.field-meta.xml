@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PrimarySegment__c</fullName>
+    <description>Original segment of the account, calculated by the system. 
+Can comes from lead qualification</description>
+    <externalId>false</externalId>
+    <label>Primary Segment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>AccountSegment</valueSetName>
+    </valueSet>
+</CustomField>

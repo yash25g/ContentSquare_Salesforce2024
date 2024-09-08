@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ACVnotEditableWhenQuote</fullName>
+    <active>true</active>
+    <errorConditionFormula>NumberOfQuotes__c  &gt;= 1 &amp;&amp;
+ISCHANGED(ACV__c ) &amp;&amp; 
+$Permission.ByPassVR = false</errorConditionFormula>
+    <errorDisplayField>ACV__c</errorDisplayField>
+    <errorMessage>You cannot modify the ACV as soon as a quote is linked to an opportunity</errorMessage>
+</ValidationRule>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RestrictReasonByOpportunityType</fullName>
+    <active>true</active>
+    <description>Restricts certain reasons to specific opportunity types</description>
+    <errorConditionFormula>AND($Permission.ByPassVR = false,
+    ISPICKVAL(LossReason__c, &quot;Project cancelled&quot;) ||
+    ISPICKVAL(LossReason__c, &quot;Unqualified / not in our target market&quot;) ||
+    ISPICKVAL(LossReason__c, &quot;Unresponsive&quot;) ||
+    ISPICKVAL(LossReason__c, &quot;Functionality&quot;) ||
+    ISPICKVAL(LossReason__c, &quot;Use case&quot;) ||
+    ISPICKVAL(LossReason__c, &quot;Not a good time / revisit later&quot;) ||
+    ISPICKVAL(LossReason__c, &quot;Lack of budget / revisit later&quot;) ||
+    ISPICKVAL(LossReason__c, &quot;Price vs. perceived value&quot;) ||
+    ISPICKVAL(LossReason__c, &quot;Financial reasons&quot;) ||
+    ISPICKVAL(LossReason__c, &quot;Security, Legal Compliance&quot;) ||
+    ISPICKVAL(LossReason__c, &quot;Disqualified&quot;),
+    NOT(
+        ISPICKVAL(Type, &quot;New Business&quot;) ||
+        ISPICKVAL(Type, &quot;Upsell&quot;) ||
+        ISPICKVAL(Type, &quot;Cross sell&quot;)
+    )
+)</errorConditionFormula>
+    <errorMessage>This reason can only be chosen when Opportunity Type is New Business, Upsell, or Cross-sell.</errorMessage>
+</ValidationRule>

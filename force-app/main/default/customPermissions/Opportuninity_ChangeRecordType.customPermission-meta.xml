@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Dedicated permission used to filter visibility of a custom quick action on the opportunity &quot;Change Record Type&quot;</description>
+    <isLicensed>false</isLicensed>
+    <label>Opportuninity_ChangeRecordType</label>
+</CustomPermission>

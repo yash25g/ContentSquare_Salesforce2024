@@ -1,0 +1,50 @@
+name: Deploy to UAT
+
+# Definition when the workflow should run
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to deploy'
+        default: 'develop'
+        required: true
+
+# Jobs to be executed
+jobs:
+  Deploy-to-UAT:
+    runs-on: ubuntu-latest
+    environment: UAT
+    steps:
+      # Checkout the code in the pull request
+      - name: "Checkout source code"
+        uses: actions/checkout@v4
+        
+      # Setup Node
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+    
+      # Install SFDX CLI
+      - name: Install SFDX CLI
+        run: npm install @salesforce/cli --global
+
+      # Authorize SF UAT Org
+      - name: Authorize SF Org
+        env:
+          CLIENT_ID: ${{ secrets.APP_CONSUMER_KEY }}
+          USERNAME: ${{ secrets.USERNAME }}
+          INSTANCE_URL: ${{ secrets.INSTANCE_URL }}
+        run: sfdx force:auth:jwt:grant --clientid $CLIENT_ID --jwtkeyfile ./.buildfiles/server.key --username $USERNAME --instanceurl $INSTANCE_URL -a OneCRM_UAT
+
+      # Validate deployment
+      - name: Preview deployment
+        run: sf project deploy preview --ignore-conflicts --source-dir force-app --target-org OneCRM_UAT
+
+      # Deployment
+      - name: "Push changes to UAT sandbox"
+        run: sf project deploy start --ignore-conflicts --source-dir force-app --target-org OneCRM_UAT
+
+      # Load data
+      - name: "Load data"
+        run: sf data upsert bulk --sobject CurrencyType --file data/CurrencyType.csv --external-id Id --target-org OneCRM_UAT

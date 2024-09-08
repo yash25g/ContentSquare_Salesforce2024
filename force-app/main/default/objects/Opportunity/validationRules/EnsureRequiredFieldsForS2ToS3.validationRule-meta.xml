@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EnsureRequiredFieldsForS2ToS3</fullName>
+    <active>true</active>
+    <description>Ensure required fields below for S2 to S3</description>
+    <errorConditionFormula>AND($Permission.ByPassVR = false,
+    ISPICKVAL(StageName, &quot;3- Qualified&quot;),
+    ISPICKVAL(PRIORVALUE(StageName), &quot;2- Sales Accepted&quot;),
+    OR(
+        ISPICKVAL(Type, &quot;New Business&quot;),
+        ISPICKVAL(Type, &quot;Upsell&quot;),
+        ISPICKVAL(Type, &quot;Cross-sell&quot;)
+    ),
+    OR(
+        ISBLANK(NextStep),
+        ISPICKVAL(OfferType__c, &quot;&quot;),
+        ISBLANK(Painpoints__c),
+        ISBLANK(PainPointsDetails__c),
+        ISBLANK(BusinessNeeds__c),
+        ISBLANK(Champion__c),
+        ISBLANK(ExistingTechStack__c)
+    )
+)</errorConditionFormula>
+    <errorMessage>To move from S2 to S3, the following fields must be filled out:  &quot;Next Step, Offer Type, Painpoints, Painpoints details, Business Needs, Champion, Existing Tech Stack&quot;</errorMessage>
+</ValidationRule>

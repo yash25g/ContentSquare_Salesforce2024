@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WorkdayContract</fullName>
+    <active>true</active>
+    <description>Linked to the contracts sent by Workday</description>
+    <label>Workday Contract</label>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Canceled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Terminated</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>TerminationReason__c</picklist>
+        <values>
+            <fullName>Booking adjustment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Booking adjustment product not working</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contracts merge</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Postponed start date</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Price adjustment %28commercial gesture%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product swap %28no usage%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renegotiation Opt-in</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal earlier start date</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

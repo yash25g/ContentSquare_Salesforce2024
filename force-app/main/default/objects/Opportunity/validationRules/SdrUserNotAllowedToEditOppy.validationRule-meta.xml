@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SdrUserNotAllowedToEditOppy</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND(
+OR(
+ $Permission.ByPassVR = false,
+ $Permission.SDRUser = true),
+OR(
+ISPICKVAL(StageName , &quot;2- Sales Accepted&quot;),
+ISPICKVAL(StageName , &quot;3- Qualified&quot;),
+ISPICKVAL(StageName , &quot;4- Selection Started&quot;),
+ISPICKVAL(StageName , &quot;5- Value Proven&quot;),
+ISPICKVAL(StageName , &quot;6- Preferred Vendor&quot;),
+ISPICKVAL(StageName , &quot;7- Business Win&quot;)))</errorConditionFormula>
+    <errorMessage>SDR users are only allowed to work on a S1 opportunity</errorMessage>
+</ValidationRule>

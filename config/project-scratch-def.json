@@ -1,0 +1,23 @@
+{
+  "orgName": "ContentSquare - Scratch Org",
+  "language": "en_US",
+  "sourceOrg": "00DWx000001gHLe",
+  "features": ["StateAndCountryPicklist","MultiCurrency"],
+  "settings": {
+    "quoteSettings": {
+      "enableQuote" : true
+    },
+    "currencySettings": {
+      "enableMultiCurrency": true
+    },
+    "accountSettings": {
+      "enableAccountTeams": true
+    },
+    "opportunitySettings": {
+      "enableOpportunityTeam": true
+    },
+    "enhancedNotesSettings": {
+      "enableEnhancedNotes": true
+    }
+  }
+}

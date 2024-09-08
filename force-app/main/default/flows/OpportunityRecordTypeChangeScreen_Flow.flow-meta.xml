@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <assignments>
+        <description>Assigns the Id of the standard opportunity record type</description>
+        <name>Assign_Standard_Record_Type_Id_Of_Opportunity</name>
+        <label>Assign Standard Record Type Id Of Opportunity</label>
+        <locationX>761</locationX>
+        <locationY>727</locationY>
+        <assignmentItems>
+            <assignToReference>standardOppRecTypeId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_through_all_record_types.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Record_Type_Selection_Screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_the_selected_opportunity_record_type</name>
+        <label>Assign the selected opportunity record type</label>
+        <locationX>379</locationX>
+        <locationY>1293</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Current_Opportunity_Record.RecordTypeId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Record_Types</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Opportunity_Record</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_the_selected_opportunity_record_type_0</name>
+        <label>Assign the selected opportunity record type</label>
+        <locationX>804</locationX>
+        <locationY>1308</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Current_Opportunity_Record.RecordTypeId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Record_Types</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Current_Opportunity_Record.StageName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>3- Qualified</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Opportunity_Record</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Check if standard record type is selected and stage is superior to S3 compared to current stage</description>
+        <name>Check_if_standard_record_type_is_selected_and_stage_is_superior_to_S3</name>
+        <label>Check if standard record type is selected and stage is superior to S3</label>
+        <locationX>479</locationX>
+        <locationY>945</locationY>
+        <defaultConnector>
+            <targetReference>Assign_the_selected_opportunity_record_type</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Current_Opportunity_Record.StageName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>1- Meeting Done</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Current_Opportunity_Record.StageName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>2- Sales Accepted</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Current_Opportunity_Record.StageName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>3- Qualified</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Record_Types</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>standardOppRecTypeId</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Warning_Message_Screen</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Checks if the user is the owner or has the required permission to change the record type</description>
+        <name>Check_If_User_Is_Authorised</name>
+        <label>Check If User Is Authorised</label>
+        <locationX>572</locationX>
+        <locationY>290</locationY>
+        <defaultConnector>
+            <targetReference>No_Permission_Error_Display_Screen</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Permission</defaultConnectorLabel>
+        <rules>
+            <name>Has_Permission</name>
+            <conditionLogic>(1 OR 2)</conditionLogic>
+            <conditions>
+                <leftValueReference>UserId18Digit</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Get_Current_Opportunity_Record.OwnerId</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Permission.Opportuninity_ChangeRecordType</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Opportunity_Record_Types</targetReference>
+            </connector>
+            <label>Has Permission</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Checks if the current loop item of record type is standard opportunity record type</description>
+        <name>Is_standard_opportunity_record_type</name>
+        <label>Is standard opportunity record type</label>
+        <locationX>946</locationX>
+        <locationY>362</locationY>
+        <defaultConnector>
+            <targetReference>Loop_through_all_record_types</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Is Not Standard Record Type</defaultConnectorLabel>
+        <rules>
+            <name>Is_Standard_Record_Type</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_through_all_record_types.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Label.StandardOpportunityRecordTypeName</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Standard_Record_Type_Id_Of_Opportunity</targetReference>
+            </connector>
+            <label>Is Standard Record Type</label>
+        </rules>
+    </decisions>
+    <description>Flow to change the record type of the opportunity.</description>
+    <dynamicChoiceSets>
+        <name>AllRecordTypesChoice</name>
+        <collectionReference>Get_Opportunity_Record_Types</collectionReference>
+        <dataType>String</dataType>
+        <displayField>Name</displayField>
+        <object>RecordType</object>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
+    <environments>Default</environments>
+    <formulas>
+        <name>UserId18Digit</name>
+        <dataType>String</dataType>
+        <expression>CASESAFEID({!$User.Id})</expression>
+    </formulas>
+    <interviewLabel>Opportunity Record Type Change Screen Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity Record Type Change Screen Flow</label>
+    <loops>
+        <description>Loops through all records of the record type of opportunity</description>
+        <name>Loop_through_all_record_types</name>
+        <label>Loop through all record types</label>
+        <locationX>440</locationX>
+        <locationY>506</locationY>
+        <collectionReference>Get_Opportunity_Record_Types</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Is_standard_opportunity_record_type</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Record_Type_Selection_Screen</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <description>Get&apos;s the opportunity record from which the flow was launched</description>
+        <name>Get_Current_Opportunity_Record</name>
+        <label>Get Current Opportunity Record</label>
+        <locationX>572</locationX>
+        <locationY>182</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_If_User_Is_Authorised</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Error_Screen</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Get&apos;s all the record types of the opportunity except for the record type of the current record</description>
+        <name>Get_Opportunity_Record_Types</name>
+        <label>Get Opportunity Record Types</label>
+        <locationX>440</locationX>
+        <locationY>398</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_through_all_record_types</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Error_Screen</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SobjectType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Opportunity</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>Get_Current_Opportunity_Record.RecordTypeId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Updates the opportunity record</description>
+        <name>Update_Opportunity_Record</name>
+        <label>Update Opportunity Record</label>
+        <locationX>531</locationX>
+        <locationY>1439</locationY>
+        <connector>
+            <targetReference>Success_Message_Screen</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Error_Screen</targetReference>
+        </faultConnector>
+        <inputReference>Get_Current_Opportunity_Record</inputReference>
+    </recordUpdates>
+    <screens>
+        <description>Some unhandled run time error message display</description>
+        <name>Error_Screen</name>
+        <label>Error Screen</label>
+        <locationX>1731</locationX>
+        <locationY>760</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>ErrorText</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong style=&quot;color: rgb(234, 14, 14); font-size: 16px;&quot;&gt;{!$Label.ErrorMessageForScreenFlow}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>No_Permission_Error_Display_Screen</name>
+        <label>No Permission Error Display Screen</label>
+        <locationX>704</locationX>
+        <locationY>398</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>DisplayAccessDenied</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong style=&quot;color: rgb(228, 9, 9); font-size: 16px;&quot;&gt;{!$Label.AccessDeniedError}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>false</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Record_Type_Selection_Screen</name>
+        <label>Record Type Selection Screen</label>
+        <locationX>616</locationX>
+        <locationY>829</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Check_if_standard_record_type_is_selected_and_stage_is_superior_to_S3</targetReference>
+        </connector>
+        <fields>
+            <name>Record_Types</name>
+            <choiceReferences>AllRecordTypesChoice</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Please select the record type</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Success_Message_Screen</name>
+        <label>Success Message Screen</label>
+        <locationX>528</locationX>
+        <locationY>1603</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>SuccessMessage</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong style=&quot;font-size: 16px; color: rgb(62, 112, 32);&quot;&gt;{!$Label.RecordTypeChangedMessage}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Warning_Message_Screen</name>
+        <label>Warning Message Screen</label>
+        <locationX>914</locationX>
+        <locationY>1097</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Assign_the_selected_opportunity_record_type_0</targetReference>
+        </connector>
+        <fields>
+            <name>WarningMsgForOppChange</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong style=&quot;font-size: 16px; color: rgb(218, 103, 26);&quot;&gt;{!$Label.OpportunityRecordTypeChangeWarning}&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <nextOrFinishButtonLabel>Continue</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>446</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Get_Current_Opportunity_Record</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Holds the record id of the opportunity</description>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>standardOppRecTypeId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>
