@@ -1,0 +1,12 @@
+.border{
+    border: 1px solid #d8dde6;
+}
+.filters{
+    margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;
+}
+.accNameFilter{
+    display: flex; gap: 20px;
+}
+.accCountryFilter{
+    margin-right: 20px; width: auto;
+}

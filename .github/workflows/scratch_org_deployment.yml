@@ -1,0 +1,76 @@
+name: Validate the Pull Request changes
+
+# Definition when the workflow should run
+on:
+  pull_request:
+    branches:
+      - develop
+    paths:
+      - force-app/main/default/**
+
+# Jobs to be executed
+jobs:
+  Code-scanner:
+    runs-on: ubuntu-latest
+    environment: CI/CD Scratch org
+    steps:
+      # Checkout the code in the pull request
+      - name: "Checkout source code"
+        uses: actions/checkout@v4
+        
+      # Setup Node
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+    
+      # Install SFDX CLI
+      - name: Install SFDX CLI
+        run: npm install @salesforce/cli --global
+
+      # Run SF Code Scanner
+      - name: Run SF Code Scanner
+        run: chmod +x ./.github/scripts/sf_scanner.sh && ./.github/scripts/sf_scanner.sh
+
+  Deploy-to-scratch-org:
+    runs-on: ubuntu-latest
+    environment: CI/CD Scratch org
+    steps:
+      # Checkout the code in the pull request
+      - name: "Checkout source code"
+        uses: actions/checkout@v4
+        
+      # Setup Node
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+    
+      # Install SFDX CLI
+      - name: Install SFDX CLI
+        run: npm install @salesforce/cli --global
+
+      # Authorize SF Production Org
+      - name: Authorize SF Org
+        env:
+          CLIENT_ID: ${{ secrets.PROD_APP_CONSUMER_KEY }}
+          USERNAME: ${{ secrets.PROD_USERNAME }}
+          INSTANCE_URL: ${{ secrets.PROD_INSTANCE_URL }}
+        run: sfdx force:auth:jwt:grant --clientid $CLIENT_ID --jwtkeyfile ./.buildfiles/server.key --username $USERNAME --instanceurl $INSTANCE_URL -a OneCRM_Prod
+
+      # Create Scratch Org
+      - name: Create Scratch Org
+        run: sf org create scratch --definition-file config/project-scratch-def.json --alias CICD_ScratchOrg --set-default --target-dev-hub OneCRM_Prod --duration-days 7 --wait 10
+
+      # Install packages
+      - name: Install packages
+        run: chmod +x ./.github/scripts/package_installation.sh && ./.github/scripts/package_installation.sh CICD_ScratchOrg
+      
+      # Scratch Org deployment
+      - name: Push changes to the Scratch Org
+        run: sf project deploy start --source-dir force-app --target-org CICD_ScratchOrg
+
+      # Delete Scratch Org
+      - name: Delete Scratch Org
+        if: ${{ always() }}
+        run: sf org delete scratch --target-org CICD_ScratchOrg -p

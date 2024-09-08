@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CloudAlliancesSubStatus</fullName>
+    <active>true</active>
+    <description>if “Alignment with Cloud”  = Yes, a Specific Cloud Sub Status is required</description>
+    <errorConditionFormula>AND( $Permission.ByPassVR = false,
+ISPICKVAL(AlignmentWithCloud__c, &quot;Yes&quot;),
+ISBLANK(TEXT(  CloudAlliancesAWSSubStatus__c  )),
+ISBLANK(TEXT(  CloudAlliancesMSFTSubStatus__c  )))</errorConditionFormula>
+    <errorDisplayField>AlignmentWithCloud__c</errorDisplayField>
+    <errorMessage>In case of Alignment with Cloud, a sub status is required</errorMessage>
+</ValidationRule>

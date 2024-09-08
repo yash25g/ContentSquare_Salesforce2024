@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SdrMandatoryIfSdrBookedMeeting</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( $Permission.ByPassVR = false, 
+ISPICKVAL( SDRBookedMeeting__c , &quot;Yes&quot;),
+ISBLANK( SDRName__c ), 
+OR(
+ISPICKVAL( Type , &quot;New Business&quot;),
+ISPICKVAL( Type , &quot;Upsell&quot;),
+ISPICKVAL( Type , &quot;Cross sell&quot;)),
+
+ISPICKVAL(PRIORVALUE(StageName), &quot;1- Meeting Done&quot;),
+ISPICKVAL(StageName, &quot;2- Sales Accepted&quot;))</errorConditionFormula>
+    <errorDisplayField>SDRName__c</errorDisplayField>
+    <errorMessage>Please indicate the name of the SDR who booked the meeting, before moving to Stage 2</errorMessage>
+</ValidationRule>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RecycleNurturingReason__c</fullName>
+    <externalId>false</externalId>
+    <label>Recycle / Nurturing Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No fit</fullName>
+                <default>false</default>
+                <label>No fit</label>
+            </value>
+            <value>
+                <fullName>No budget</fullName>
+                <default>false</default>
+                <label>No budget</label>
+            </value>
+            <value>
+                <fullName>Company too small</fullName>
+                <default>false</default>
+                <label>Company too small</label>
+            </value>
+            <value>
+                <fullName>Engaged in active sales cycle</fullName>
+                <default>false</default>
+                <label>Engaged in active sales cycle</label>
+            </value>
+            <value>
+                <fullName>Future Interest Indicated</fullName>
+                <default>false</default>
+                <label>Future Interest Indicated</label>
+            </value>
+            <value>
+                <fullName>No interest/need</fullName>
+                <default>false</default>
+                <label>No interest/need</label>
+            </value>
+            <value>
+                <fullName>Unable to reach</fullName>
+                <default>false</default>
+                <label>Unable to reach</label>
+            </value>
+            <value>
+                <fullName>Need more internal alignment</fullName>
+                <default>false</default>
+                <label>Need more internal alignment</label>
+            </value>
+            <value>
+                <fullName>Prefer Competitor</fullName>
+                <default>false</default>
+                <label>Prefer Competitor</label>
+            </value>
+            <value>
+                <fullName>No Recent Sales Engagement</fullName>
+                <default>false</default>
+                <label>No Recent Sales Engagement</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

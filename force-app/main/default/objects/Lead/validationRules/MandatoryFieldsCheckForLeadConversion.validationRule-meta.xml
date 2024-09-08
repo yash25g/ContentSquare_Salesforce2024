@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MandatoryFieldsCheckForLeadConversion</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( PRIORVALUE(IsConverted) = false,
+IsConverted = true,OR(
+ISBLANK( FirstName ),
+ISBLANK( Email ), 
+ISPICKVAL(Seniority__c ,&apos;&apos;),
+ISBLANK( Title ),
+ISPICKVAL(CurrencyIsoCode,&apos;&apos;),
+ISBLANK( Domain__c ),
+ISPICKVAL( CountryCode ,&apos;&apos; ),
+ISPICKVAL( Industry, &apos;&apos; ),
+ISPICKVAL( BusinessReviewSegment__c ,&apos;&apos; ),
+ISBLANK( MeetingBookedDate__c ),
+ISBLANK( QualificationComment__c ),
+ISBLANK( ProductInterests__c )
+))</errorConditionFormula>
+    <errorMessage>Please verify if all these fields are completed before converting the lead:
+First Name, Email, Seniority, Title, Currency, Domain, Country, Industry, Business review Segmentation, Meeting booked date, Meeting Qualification comment, Product interests</errorMessage>
+</ValidationRule>

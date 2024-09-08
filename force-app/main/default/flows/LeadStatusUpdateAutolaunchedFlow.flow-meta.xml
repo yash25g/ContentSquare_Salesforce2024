@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <assignments>
+        <description>Assigns the status of the Lead record to “Being Worked”.</description>
+        <name>Assign_Being_Worked_as_status_of_Lead_record</name>
+        <label>Assign &quot;Being Worked&quot; as status of Lead record</label>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>Get_the_lead_record.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Being Worked</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Lead_Record</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Checks if lead&apos;s status is equal to “MQL” or “New to be managed”</description>
+        <name>Check_if_lead_qualifies_to_be_set_to_Being_worked</name>
+        <label>Check if lead qualifies to be set to Being worked</label>
+        <locationX>182</locationX>
+        <locationY>242</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_the_lead_record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>MQL</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_the_lead_record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New to be managed</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Being_Worked_as_status_of_Lead_record</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>This flow is autolaunched flow to update the status of the flow and takes the Lead Id as input.</description>
+    <environments>Default</environments>
+    <interviewLabel>Lead Status Update Autolaunched Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead Status Update Autolaunched Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Queries the lead object</description>
+        <name>Get_the_lead_record</name>
+        <label>Get the lead record</label>
+        <locationX>182</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_if_lead_qualifies_to_be_set_to_Being_worked</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>leadId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Lead</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Updates the status of the Lead record to “Being Worked”.</description>
+        <name>Update_Lead_Record</name>
+        <label>Update Lead Record</label>
+        <locationX>50</locationX>
+        <locationY>458</locationY>
+        <inputReference>Get_the_lead_record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_the_lead_record</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>leadId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

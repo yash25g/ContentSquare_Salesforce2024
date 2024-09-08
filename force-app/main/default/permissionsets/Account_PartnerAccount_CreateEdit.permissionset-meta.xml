@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Create Read Update permission + Record type &quot;Partner Account&quot;</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Account_PartnerAccount_CreateEdit</label>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Account</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <recordTypeVisibilities>
+        <recordType>Account.PartnerAccount</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+</PermissionSet>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DisqualifiedPreviousStageS1</fullName>
+    <active>true</active>
+    <description>Ensure &quot;Disqualified&quot; can only be chosen if the previous stage is S1.</description>
+    <errorConditionFormula>AND($Permission.ByPassVR = false,
+    ISPICKVAL(LossReason__c, &quot;Disqualified&quot;),
+    NOT(ISPICKVAL(PRIORVALUE(StageName), &quot;1- Meeting Done&quot;))
+)</errorConditionFormula>
+    <errorMessage>The reason &quot;Disqualified&quot; can only be selected if the previous stage is Meeting Done.</errorMessage>
+</ValidationRule>

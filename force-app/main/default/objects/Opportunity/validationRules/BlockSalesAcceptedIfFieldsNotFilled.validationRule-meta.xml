@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BlockSalesAcceptedIfFieldsNotFilled</fullName>
+    <active>true</active>
+    <description>Block Stage 2 if the fields are not filled</description>
+    <errorConditionFormula>AND($Permission.ByPassVR = false,
+    ISPICKVAL(StageName, &quot;2- Sales Accepted&quot;), 
+    ISPICKVAL(PRIORVALUE(StageName), &quot;1- Meeting Done&quot;),
+    OR(
+        ISPICKVAL(Type, &quot;New business&quot;),
+        ISPICKVAL(Type, &quot;Upsell&quot;),
+        ISPICKVAL(Type, &quot;Cross-sell&quot;)
+    ),
+    OR(
+        ISBLANK(InsideSalesQualification__c),
+        ISBLANK(DateOfFirstMeeting__c),
+        ISPICKVAL(Type, &quot;&quot;),
+ISPICKVAL(SDRBookedMeeting__c, &quot;&quot;),
+        ISBLANK(ACV__c)
+    )
+)</errorConditionFormula>
+    <errorMessage>When moving from Meeting Done to Sales Accepted, the Meeting Qualification Comment, Date of First Meeting, Type, and ACV must be filled if the Opportunity Type is New business, Upsell, or Cross-sell.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,90 @@
+name: Deploy to Integration
+
+# Definition when the workflow should run
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - develop
+    paths:
+      - force-app/main/default/**
+  workflow_dispatch:
+
+# Jobs to be executed
+jobs:
+  Deploy-to-integration:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    environment: Integration
+    steps:
+      # Checkout the code in the pull request
+      - name: "Checkout source code"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2        
+        
+      # Setup Node
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+    
+      # Install SFDX CLI
+      - name: Install SFDX CLI
+        run: npm install @salesforce/cli --global
+
+      # Authorize SF Integration Org
+      - name: Authorize SF Org
+        env:
+          CLIENT_ID: ${{ secrets.APP_CONSUMER_KEY }}
+          USERNAME: ${{ secrets.USERNAME }}
+          INSTANCE_URL: ${{ secrets.INSTANCE_URL }}
+        run: sfdx force:auth:jwt:grant --clientid $CLIENT_ID --jwtkeyfile ./.buildfiles/server.key --username $USERNAME --instanceurl $INSTANCE_URL -a OneCRM_Int
+
+      # Identify changed files and format them as a comma-separated list
+      - name: Identify changed files with files listed as comma separated
+        id: changes
+        run: |
+          CHANGED_FILES=$(git diff --name-only HEAD^ HEAD | grep 'force-app/main/default')
+          FORMATTED_CHANGED_FILES=$(echo "$CHANGED_FILES" | tr '\n' ',' | sed 's/,$//') # Remove trailing comma
+          echo "Formatted changed files: $FORMATTED_CHANGED_FILES"  # Print the changed files after removing trailing comma
+          echo "FORMATTED_CHANGED_FILES=$FORMATTED_CHANGED_FILES" >> $GITHUB_ENV
+
+      # Validate deployment by previewing only the changed files
+      - name: Preview deployment
+        run: |
+          if [ -n "${{ env.FORMATTED_CHANGED_FILES }}" ]; then
+            # Build the --source-dir arguments for multiple paths
+            IFS=',' read -r -a FILES <<< "${{ env.FORMATTED_CHANGED_FILES }}"
+            ARGS=""
+            for FILE in "${FILES[@]}"; do
+              ARGS="$ARGS --source-dir $FILE"
+            done
+            # Echo the full command before executing
+            echo "sf project deploy preview --ignore-conflicts $ARGS --target-org OneCRM_Int"
+            sf project deploy preview --ignore-conflicts $ARGS --target-org OneCRM_Int
+          else
+            echo "No changed files to preview."
+          fi 
+
+      # Deployment
+      - name: "Push changes to Integration sandbox"
+        run: |
+          if [ -n "${{ env.FORMATTED_CHANGED_FILES }}" ]; then
+            # Build the --source-dir arguments for multiple paths
+            IFS=',' read -r -a FILES <<< "${{ env.FORMATTED_CHANGED_FILES }}"
+            ARGS=""
+            for FILE in "${FILES[@]}"; do
+              ARGS="$ARGS --source-dir $FILE"
+            done
+            # Echo the full command before executing
+            echo "sf project deploy start --ignore-conflicts $ARGS --target-org OneCRM_Int"
+            sf project deploy start --ignore-conflicts $ARGS --target-org OneCRM_Int
+          else
+            echo "No changed files to preview."
+          fi 
+
+      # Load data
+      - name: "Load data"
+        run: sf data upsert bulk --sobject CurrencyType --file data/CurrencyType.csv --external-id Id --target-org OneCRM_Int

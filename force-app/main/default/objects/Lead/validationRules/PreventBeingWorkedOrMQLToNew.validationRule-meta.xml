@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PreventBeingWorkedOrMQLToNew</fullName>
+    <active>true</active>
+    <description>The status can&apos;t be change from MQL or Being Worked to New to be Managed.</description>
+    <errorConditionFormula>AND(
+    ISPICKVAL(Status, &quot;New to be managed&quot;),
+    OR(
+        ISPICKVAL(PRIORVALUE(Status), &quot;MQL&quot;),
+        ISPICKVAL(PRIORVALUE(Status), &quot;Being Worked&quot;)
+    ),
+$Permission.ByPassVR = false
+)</errorConditionFormula>
+    <errorMessage>You can&apos;t change the status MQL or Being Worked to New to be Managed.</errorMessage>
+</ValidationRule>

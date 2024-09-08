@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OptOutNeedNoticeBefore__c</fullName>
+    <externalId>false</externalId>
+    <formula>ValidatedQuote__r.OptOutNeedNoticeBefore__c</formula>
+    <inlineHelpText>Maximum date when the opt-out notice has to be sent by the customer. Otherwise, it&apos;s considered as opted-in</inlineHelpText>
+    <label>Opt-out need notice before</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

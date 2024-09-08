@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TerminationType__c</fullName>
+    <externalId>false</externalId>
+    <label>Termination Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Renewal earlier start date</fullName>
+                <default>false</default>
+                <label>Renewal earlier start date</label>
+            </value>
+            <value>
+                <fullName>Contracts merge</fullName>
+                <default>false</default>
+                <label>Contracts merge</label>
+            </value>
+            <value>
+                <fullName>Renegotiation Opt-in</fullName>
+                <default>false</default>
+                <label>Renegotiation Opt-in</label>
+            </value>
+            <value>
+                <fullName>Product swap (no usage)</fullName>
+                <default>false</default>
+                <label>Product swap (no usage)</label>
+            </value>
+            <value>
+                <fullName>Price adjustment (commercial gesture)</fullName>
+                <default>false</default>
+                <label>Price adjustment (commercial gesture)</label>
+            </value>
+            <value>
+                <fullName>Booking adjustment product not working</fullName>
+                <default>false</default>
+                <label>Booking adjustment product not working</label>
+            </value>
+            <value>
+                <fullName>Booking adjustment</fullName>
+                <default>false</default>
+                <label>Booking adjustment</label>
+            </value>
+            <value>
+                <fullName>Postponed start date</fullName>
+                <default>false</default>
+                <label>Postponed start date</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

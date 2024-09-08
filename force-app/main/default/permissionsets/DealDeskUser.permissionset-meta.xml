@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>DealDeskUser</name>
+    </customPermissions>
+    <description>Permission set assigned to Deal Desk user</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Deal Desk User</label>
+</PermissionSet>

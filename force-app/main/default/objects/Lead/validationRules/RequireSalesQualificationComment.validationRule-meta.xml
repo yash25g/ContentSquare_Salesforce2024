@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequireSalesQualificationComment</fullName>
+    <active>true</active>
+    <description>The Sales Qualification Comment field should be completed if the first meeting date has been indicated.</description>
+    <errorConditionFormula>AND(
+    NOT(ISBLANK(MeetingBookedDate__c)),
+    ISBLANK(QualificationComment__c),
+$Permission.ByPassVR = false
+)</errorConditionFormula>
+    <errorMessage>The Sales Qualification comment is mandatory.</errorMessage>
+</ValidationRule>

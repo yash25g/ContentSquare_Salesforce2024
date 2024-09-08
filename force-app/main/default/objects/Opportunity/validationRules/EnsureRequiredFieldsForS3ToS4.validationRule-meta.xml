@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EnsureRequiredFieldsForS3ToS4</fullName>
+    <active>true</active>
+    <description>Ensure Required Fields For S3 to S4</description>
+    <errorConditionFormula>AND($Permission.ByPassVR = false,
+    ISPICKVAL(StageName, &quot;4- Selection Started&quot;),
+    ISPICKVAL(PRIORVALUE(StageName), &quot;3- Qualified&quot;),
+    OR(
+        ISBLANK(CustomerConversionRate__c),
+        ISBLANK(CustomerAvgBasket__c),
+        ISBLANK(OnlineRevenue__c),
+        ISBLANK(EconomicBuyer__c),
+        ISBLANK(MetricsOther__c),
+        ISBLANK(DecisionProcess__c)
+    )
+)</errorConditionFormula>
+    <errorMessage>To move from S3 to S4, the following fields must be filled out: Conversion Rate, Avg Basket, Online Revenue, Economic Buyer, Metrics Other, Decision Process.</errorMessage>
+</ValidationRule>

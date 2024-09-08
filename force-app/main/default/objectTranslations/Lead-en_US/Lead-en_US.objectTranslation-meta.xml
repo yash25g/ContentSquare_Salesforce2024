@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Sales Lead</layout>
+        <sections>
+            <label><!-- Account information --></label>
+            <section>Account information</section>
+        </sections>
+        <sections>
+            <label><!-- Address --></label>
+            <section>Address</section>
+        </sections>
+        <sections>
+            <label><!-- Sales Qualification --></label>
+            <section>Sales Qualification</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description><!-- Used to track Prospect or Customer qualification --></description>
+        <label><!-- Sales Lead --></label>
+        <name>SalesLead</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Please populate the Lead Country --></errorMessage>
+        <name>Country_Validation_Rule</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- At lead update, you can only modify the lead source recent --></errorMessage>
+        <name>LeadSourceNotAllowedAtUpdate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Partner Referral must be empty if your lead sources are not linked to the Partner --></errorMessage>
+        <name>PartnerReferralEmpty</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A Partner Referral is mandatory in case of Partner lead source --></errorMessage>
+        <name>PartnerReferralMandatoryAtCreation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A Partner Referral is mandatory in case of Partner lead source recent --></errorMessage>
+        <name>PartnerReferralMandatoryAtUpdate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can&apos;t change the status MQL or Being Worked to New to be Managed. --></errorMessage>
+        <name>Prevent_BeingWorked_or_MQL_to_New</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can&apos;t change the status Being Worked to MQL. --></errorMessage>
+        <name>Prevent_BeingWorked_to_MQL</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can&apos;t change the status Disqualified. --></errorMessage>
+        <name>Prevent_Disqualified_ToBeModified</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A disqualification reason is mandatory. --></errorMessage>
+        <name>Require_Disqualification_Reason</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A Recycle reason is mandatory. --></errorMessage>
+        <name>Require_Recycle_Reason</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Sales Qualification comment is mandatory. --></errorMessage>
+        <name>Require_Sales_Qualification_Comment</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can&apos;t update Region/Geography. --></errorMessage>
+        <name>Restrict_Updation_Of_Region_And_Geograph</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleNews --></label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+</CustomObjectTranslation>

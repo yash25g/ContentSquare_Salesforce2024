@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TCVSaas__c</fullName>
+    <description>Summarize Total Price of Products identified with Prdocut Family &quot;SaaS&quot; and &quot;SaaS Non Recurring&quot; (=Starter pack starting 2020 - CAP Edition Starter packs)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Summarize Total Price of Products identified with Product Family &quot;SaaS&quot; and &quot;SaaS Non Recurring&quot; (=Starter pack starting 2020 - CAP Edition Starter packs)</inlineHelpText>
+    <label>TCV SaaS</label>
+    <summarizedField>OpportunityLineItem.UnitPrice</summarizedField>
+    <summaryForeignKey>OpportunityLineItem.OpportunityId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <type>Summary</type>
+</CustomField>

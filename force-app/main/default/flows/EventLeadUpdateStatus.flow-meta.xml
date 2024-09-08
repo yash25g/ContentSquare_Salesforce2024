@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <decisions>
+        <description>Checks if this event is related to lead object or not</description>
+        <name>Check_if_event_is_related_to_lead_object</name>
+        <label>Check if event is related to lead object</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>isEventRelatedToLead</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Lead_Update_Status_Action</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>isEventRelatedToLead</name>
+        <dataType>Boolean</dataType>
+        <expression>UPPER(LEFT({!$Record.WhoId},3)) == &apos;00Q&apos;</expression>
+    </formulas>
+    <interviewLabel>Event - Lead update status {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Event - Lead update status</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_if_event_is_related_to_lead_object</targetReference>
+        </connector>
+        <filterFormula>!{!$Permission.ByPassFlow}</filterFormula>
+        <object>Event</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>Updates the lead status</description>
+        <name>Lead_Update_Status_Action</name>
+        <label>Lead Update Status Action</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <flowName>LeadStatusUpdateAutolaunchedFlow</flowName>
+        <inputAssignments>
+            <name>leadId</name>
+            <value>
+                <elementReference>$Record.WhoId</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+</Flow>

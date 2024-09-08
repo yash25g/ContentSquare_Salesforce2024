@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DisqualifiedReason__c</fullName>
+    <description>field linked to the Loss reason Disqualified</description>
+    <externalId>false</externalId>
+    <label>Disqualified Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Authority</fullName>
+                <default>false</default>
+                <label>Authority</label>
+            </value>
+            <value>
+                <fullName>Budget</fullName>
+                <default>false</default>
+                <label>Budget</label>
+            </value>
+            <value>
+                <fullName>Wanted a Free Basic Plan</fullName>
+                <default>false</default>
+                <label>Wanted a Free Basic Plan</label>
+            </value>
+            <value>
+                <fullName>Company too small</fullName>
+                <default>false</default>
+                <label>Company too small</label>
+            </value>
+            <value>
+                <fullName>Merging with existing opportunity</fullName>
+                <default>false</default>
+                <label>Merging with existing opportunity</label>
+            </value>
+            <value>
+                <fullName>Need (not interested)</fullName>
+                <default>false</default>
+                <label>Need (not interested)</label>
+            </value>
+            <value>
+                <fullName>Not ready to purchase this year</fullName>
+                <default>false</default>
+                <label>Not ready to purchase this year</label>
+            </value>
+            <value>
+                <fullName>Unable to reach</fullName>
+                <default>false</default>
+                <label>Unable to reach</label>
+            </value>
+            <value>
+                <fullName>Other (specify)</fullName>
+                <default>false</default>
+                <label>Other (specify)</label>
+            </value>
+            <value>
+                <fullName>Support Training Call</fullName>
+                <default>false</default>
+                <label>Support Training Call</label>
+            </value>
+            <value>
+                <fullName>Self Serve</fullName>
+                <default>false</default>
+                <label>Self Serve</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

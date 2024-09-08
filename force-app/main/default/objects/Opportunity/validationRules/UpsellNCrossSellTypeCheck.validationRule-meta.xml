@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UpsellNCrossSellTypeCheck</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(NOT($Permission.ByPassVR),(PreviousContracts__c &gt; 1), OR( ISPICKVAL( Type , &apos;Cross sell&apos;), ISPICKVAL( Type , &apos;Upsell&apos;)))</errorConditionFormula>
+    <errorDisplayField>Type</errorDisplayField>
+    <errorMessage>Opportunity Type cannot be set to Upsell or Cross-sell if multiple Previous Contracts exist or if creating multiple Previous Contracts for such Opportunity.</errorMessage>
+</ValidationRule>

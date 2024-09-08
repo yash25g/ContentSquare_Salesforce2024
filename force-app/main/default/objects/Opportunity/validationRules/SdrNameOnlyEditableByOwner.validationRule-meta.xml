@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SdrNameOnlyEditableByOwner</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( $Permission.ByPassVR = false, 
+ISCHANGED( SDRName__c ), 
+ $User.Id &lt;&gt; OwnerId)</errorConditionFormula>
+    <errorDisplayField>SDRName__c</errorDisplayField>
+    <errorMessage>SDR Name can only be editable by the opportunity owner</errorMessage>
+</ValidationRule>

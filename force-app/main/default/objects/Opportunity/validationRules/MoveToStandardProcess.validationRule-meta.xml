@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MoveToStandardProcess</fullName>
+    <active>true</active>
+    <description>It is not possible to be in Fast Track process (record type = Fast Track) for a New business (opportunity type = New Business) and If the Account segment is Enterprise (Business Review Segment = Enterprise)</description>
+    <errorConditionFormula>AND( $Permission.ByPassVR = false,
+
+RecordType.DeveloperName = &quot;FastTrackOpportunity&quot;,
+ISPICKVAL(Type , &quot;New Business&quot;),
+ISPICKVAL(Account.BusinessReviewSegment__c, &quot;Enterprise&quot;))</errorConditionFormula>
+    <errorMessage>On an Enterprise Account, it is not possible to be in Fast Track process, for a New business opportunity</errorMessage>
+</ValidationRule>

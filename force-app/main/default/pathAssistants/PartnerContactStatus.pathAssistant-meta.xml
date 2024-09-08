@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Contact</entityName>
+    <fieldName>ContactStatus__c</fieldName>
+    <masterLabel>Partner Contact Status</masterLabel>
+    <recordTypeName>PartnerContact</recordTypeName>
+</PathAssistant>

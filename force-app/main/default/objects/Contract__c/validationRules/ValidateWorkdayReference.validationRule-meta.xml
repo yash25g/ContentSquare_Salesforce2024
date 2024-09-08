@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateWorkdayReference</fullName>
+    <active>true</active>
+    <description>Validates if the value of the WorkdayReferenceId field matches the Opportunity Id format.</description>
+    <errorConditionFormula>!REGEX(WorkdayReferenceId__c,&apos;^006[a-zA-Z0-9]{12}([a-zA-Z0-9]{3})?$&apos;)</errorConditionFormula>
+    <errorDisplayField>WorkdayReferenceId__c</errorDisplayField>
+    <errorMessage>Workday Reference Id field value should contain a valid Opportunity Id</errorMessage>
+</ValidationRule>

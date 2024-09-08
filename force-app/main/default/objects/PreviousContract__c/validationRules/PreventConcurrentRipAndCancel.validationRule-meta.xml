@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PreventConcurrentRipAndCancel</fullName>
+    <active>true</active>
+    <description>For Renewal Opportunity both Is concerned by Rip &amp; Replace and Is concerned by Cancel &amp; Replace can’t be set at the same time.</description>
+    <errorConditionFormula>AND( NOT($Permission.ByPassVR),
+ISPICKVAL( Opportunity__r.Type ,&apos;Renewal&apos;),
+ISPICKVAL( IsConcernedByCancelReplace__c  ,&apos;Yes&apos;),
+ISPICKVAL( IsConcernedByRipReplace__c ,&apos;Yes&apos;)
+)</errorConditionFormula>
+    <errorMessage>For Renewal Opportunity both Is concerned by Rip &amp; Replace and Is concerned by Cancel &amp; Replace can’t be set at the same time.</errorMessage>
+</ValidationRule>

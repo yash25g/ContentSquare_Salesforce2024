@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateFieldsMovingFromS6ToS7</fullName>
+    <active>true</active>
+    <description>You must fill in the Risks, Procurement Summary, Contract Process, and Security Process fields before moving from S6 to S7.</description>
+    <errorConditionFormula>AND($Permission.ByPassVR = false,
+    ISPICKVAL(StageName, &quot;7- Business Win&quot;),
+    ISPICKVAL(PRIORVALUE(StageName), &quot;6- Preferred Vendor&quot;),
+    OR(
+        ISBLANK(Risks__c),
+        ISBLANK(ProcurementSummary_c__c),
+        ISBLANK(ContractProcess__c),
+        ISBLANK(SecurityProcess__c)
+    )
+)</errorConditionFormula>
+    <errorMessage>You must fill in the Risks, Procurement Summary, Contract Process, and Security Process fields before moving from S6 to S7.</errorMessage>
+</ValidationRule>

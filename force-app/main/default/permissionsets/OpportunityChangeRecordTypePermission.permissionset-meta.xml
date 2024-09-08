@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Opportuninity_ChangeRecordType</name>
+    </customPermissions>
+    <description>Assign this permission to give user the permission to change the record type of the opportunity.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Opportunity Change Record Type Permission</label>
+</PermissionSet>

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Profile xmlns="http://soap.sforce.com/2006/04/metadata">
+    <applicationVisibilities>
+        <application>standard__AppLauncher</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__LightningSales</application>
+        <default>true</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__Sales</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <classAccesses>
+        <apexClass>AdditionalContractSharingController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CheckCreateLeadPermission</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ErrorLogHelper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <custom>true</custom>
+    <description>Custom profile for CS end users</description>
+    <layoutAssignments>
+        <layout>Account-BusinessAccount</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-BusinessAccount</layout>
+        <recordType>Account.BusinessAccount</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-PartnerAccount</layout>
+        <recordType>Account.PartnerAccount</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-UltimateAccount</layout>
+        <recordType>Account.UltimateAccount</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AccountTeamMember-Account Team Member Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Competitor__c-Competitor Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Contact-Business Contact</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Contact-Business Contact</layout>
+        <recordType>Contact.BusinessContact</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Contact-Partner Contact</layout>
+        <recordType>Contact.PartnerContact</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContractLine__c-Contract Line Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContractLine__c-Contract Line Layout</layout>
+        <recordType>ContractLine__c.WorkdayContractLine</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContractShipToAccount__c-Contract Ship-to Account Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContractShipToAccount__c-Contract Ship-to Account Layout</layout>
+        <recordType>ContractShipToAccount__c.WorkdayGroupContract</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Contract__c-Contract Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Contract__c-Contract Layout</layout>
+        <recordType>Contract__c.WorkdayContract</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead-Sales Lead</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead-Sales Lead</layout>
+        <recordType>Lead.SalesLead</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Fast Track Opportunity</layout>
+        <recordType>Opportunity.FastTrackOpportunity</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Standard Opportunity</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Standard Opportunity</layout>
+        <recordType>Opportunity.StandardOpportunity</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>OpportunityCompetitor__c-Opportunity Competitor Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>OpportunityTeamMember-Opportunity Team Member Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PreviousContract__c-Related Contract Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Quote-Quote Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>QuoteLineItem-Quote Line Item Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>OpportunityShipToAccount__c-Ship To Layout</layout>
+    </layoutAssignments>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
+        <recordType>Account.BusinessAccount</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Account.PartnerAccount</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Account.UltimateAccount</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
+        <recordType>Contact.BusinessContact</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Contact.PartnerContact</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>ContractLine__c.WorkdayContractLine</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Contract__c.WorkdayContract</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
+        <recordType>Lead.SalesLead</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Opportunity.FastTrackOpportunity</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
+        <recordType>Opportunity.StandardOpportunity</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <tabVisibilities>
+        <tab>Competitor__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Contract__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Account</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Asset</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Lead</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Opportunity</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <userLicense>Salesforce</userLicense>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ActivitiesAccess</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ChatterInternalUser</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>LightningConsoleAllowedForUser</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>RunFlow</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewHelpLink</name>
+    </userPermissions>
+</Profile>

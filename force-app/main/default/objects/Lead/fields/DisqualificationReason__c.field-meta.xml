@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DisqualificationReason__c</fullName>
+    <externalId>false</externalId>
+    <label>Disqualification Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Analyst/Media</fullName>
+                <default>false</default>
+                <label>Analyst/Media</label>
+            </value>
+            <value>
+                <fullName>Bounced</fullName>
+                <default>false</default>
+                <label>Bounced</label>
+            </value>
+            <value>
+                <fullName>Company too small</fullName>
+                <default>false</default>
+                <label>Company too small</label>
+            </value>
+            <value>
+                <fullName>Long-term Contract with Competitor</fullName>
+                <default>false</default>
+                <label>Long-term Contract with Competitor</label>
+            </value>
+            <value>
+                <fullName>Left the Company</fullName>
+                <default>false</default>
+                <label>Left the Company</label>
+            </value>
+            <value>
+                <fullName>Not Interested</fullName>
+                <default>false</default>
+                <label>Not Interested</label>
+            </value>
+            <value>
+                <fullName>Other (specify)</fullName>
+                <default>false</default>
+                <label>Other (specify)</label>
+            </value>
+            <value>
+                <fullName>Spammer/Bad data</fullName>
+                <default>false</default>
+                <label>Spammer/Bad data</label>
+            </value>
+            <value>
+                <fullName>Partner/Agency</fullName>
+                <default>false</default>
+                <label>Partner/Agency</label>
+            </value>
+            <value>
+                <fullName>Not in Target Geography</fullName>
+                <default>false</default>
+                <label>Not in Target Geography</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

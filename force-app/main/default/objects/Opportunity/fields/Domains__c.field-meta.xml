@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Domains__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Indicate here the domains covered by this opp: taxonomy [COMPANY].[EXTENSION]
+Eg: microsoft.com (no www, https)
+
+&gt; For app, indicate Bundle ID + Country</inlineHelpText>
+    <label>Domains</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

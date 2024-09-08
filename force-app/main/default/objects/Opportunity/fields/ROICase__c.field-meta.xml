@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ROICase__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>If Yes, you can add the doc in attachment if requested by your manager.
+If No, please explain in few Words the Proof of Value</inlineHelpText>
+    <label>ROI case</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NO</fullName>
+                <default>true</default>
+                <label>NO</label>
+            </value>
+            <value>
+                <fullName>YES</fullName>
+                <default>false</default>
+                <label>YES</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

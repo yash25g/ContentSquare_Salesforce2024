@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>APJ ANZ</fullName>
+        <default>false</default>
+        <label>APJ ANZ</label>
+    </customValue>
+    <customValue>
+        <fullName>APJ ASIA</fullName>
+        <default>false</default>
+        <label>APJ ASIA</label>
+    </customValue>
+    <customValue>
+        <fullName>APJ Japan</fullName>
+        <default>false</default>
+        <label>APJ Japan</label>
+    </customValue>
+    <customValue>
+        <fullName>EMEA France</fullName>
+        <default>false</default>
+        <label>EMEA France</label>
+    </customValue>
+    <customValue>
+        <fullName>EMEA UK</fullName>
+        <default>false</default>
+        <label>EMEA UK</label>
+    </customValue>
+    <customValue>
+        <fullName>EMEA Central</fullName>
+        <default>false</default>
+        <label>EMEA Central</label>
+    </customValue>
+    <customValue>
+        <fullName>EMEA North</fullName>
+        <default>false</default>
+        <label>EMEA North</label>
+    </customValue>
+    <customValue>
+        <fullName>EMEA South</fullName>
+        <default>false</default>
+        <label>EMEA South</label>
+    </customValue>
+    <customValue>
+        <fullName>EMEA MENAT</fullName>
+        <default>false</default>
+        <label>EMEA MENAT</label>
+    </customValue>
+    <customValue>
+        <fullName>AMERICAS</fullName>
+        <default>false</default>
+        <label>AMERICAS</label>
+    </customValue>
+    <customValue>
+        <fullName>AMERICAS West</fullName>
+        <default>false</default>
+        <label>AMERICAS West</label>
+    </customValue>
+    <description>Region</description>
+    <masterLabel>Region</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

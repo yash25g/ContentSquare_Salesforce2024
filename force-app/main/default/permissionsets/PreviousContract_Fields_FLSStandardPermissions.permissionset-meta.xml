@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Basic access to Previous Contract fields (Read and Edit).</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PreviousContract__c.IsConcernedByCancelReplace__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PreviousContract__c.IsConcernedByRipReplace__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PreviousContract__c.TerminationType__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>PreviousContract_Fields_FLSStandardPermissions</label>
+</PermissionSet>

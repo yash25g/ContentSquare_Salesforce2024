@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>ByPassFlow</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>ByPassTrigger</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>ByPassVR</name>
+    </customPermissions>
+    <description>This permission is used to bypass all validations rules, autolaunched flows and triggers. Please assign this permission to admin level users only and if required.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>ByPassPermission</label>
+</PermissionSet>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DecisionProcess__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>The process used to select, &amp; purchase CS&apos; offering. The events and timeline - validation and approval</inlineHelpText>
+    <label>Decision process</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

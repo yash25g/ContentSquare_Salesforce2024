@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>OneCRM - Sales Leader</label>
+    <permissionSets>Account_Fields_FLSStandardPermissions</permissionSets>
+    <permissionSets>Account_ReadOnly</permissionSets>
+    <permissionSets>Activities_Fields_FLSStandardPermissions</permissionSets>
+    <permissionSets>Activities_ReadCreateEdit</permissionSets>
+    <permissionSets>Asset_Fields_FLSStandardPermissions</permissionSets>
+    <permissionSets>Asset_ReadOnly</permissionSets>
+    <permissionSets>Campaign_Campaign_member_Fields_FLSStandardPermissions</permissionSets>
+    <permissionSets>Campaign_Campaign_member_ReadOnly</permissionSets>
+    <permissionSets>Competitors_Fields_FLSStandardPermissions</permissionSets>
+    <permissionSets>Competitors_ReadOnly</permissionSets>
+    <permissionSets>Contact_BusinessContact_CreateEdit</permissionSets>
+    <permissionSets>Contact_Fields_FLSStandardPermissions</permissionSets>
+    <permissionSets>Contact_PartnerContact_CreateEdit</permissionSets>
+    <permissionSets>ContractShipToAccount_Fields_FLSStandardPermissions</permissionSets>
+    <permissionSets>ContractShipToAccount_ReadOnly</permissionSets>
+    <permissionSets>Contract_ContractLine_ReadOnly</permissionSets>
+    <permissionSets>Contract_ContractLines_Fields_FLSStandardPermissions</permissionSets>
+    <permissionSets>KantataProject_Fields_FLSStandardPermissions</permissionSets>
+    <permissionSets>KantataProject_ReadOnly</permissionSets>
+    <permissionSets>Lead_Fields_FLSStandardPermissions</permissionSets>
+    <permissionSets>Lead_ReadOnly</permissionSets>
+    <permissionSets>OpportunityCompetitors_Fields_FLSStandardPermissions</permissionSets>
+    <permissionSets>OpportunityCompetitors_ReadOnly</permissionSets>
+    <permissionSets>Opportunity_products_Fields_FLSStandardPermissions</permissionSets>
+    <permissionSets>Opportunity_products_ReadOnly</permissionSets>
+    <permissionSets>PreviousContract_Fields_FLSStandardPermissions</permissionSets>
+    <permissionSets>PreviousContract_ReadOnly</permissionSets>
+    <permissionSets>ProductCatalog_Fields_FLSStandardPermissions</permissionSets>
+    <permissionSets>ProductCatalog_ReadOnly</permissionSets>
+    <permissionSets>Quote_QuoteLine_Fields_FLSStandardPermissions</permissionSets>
+    <permissionSets>Quote_QuoteLine_ReadOnly</permissionSets>
+    <permissionSets>SYSPERM_ListViews_Use</permissionSets>
+    <permissionSets>SYSPERM_ReportDashboard_Export</permissionSets>
+    <permissionSets>SYSPERM_ReportDashboard_Use</permissionSets>
+    <permissionSets>SYSPERM_SendEmail</permissionSets>
+    <permissionSets>SalesManager</permissionSets>
+    <permissionSets>OpportunityShipToAccount_Fields_FLSStandardPermissions</permissionSets>
+    <permissionSets>OpportunityShipToAccount_ReadOnly</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

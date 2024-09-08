@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CustomerAvgBasket__c</fullName>
+    <description>Average transaction value on customer website.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Average Basket is the average transaction value on customer website.
+If no info, you can explain other metrics option in the specific text field.</inlineHelpText>
+    <label>Customer Avg Basket</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

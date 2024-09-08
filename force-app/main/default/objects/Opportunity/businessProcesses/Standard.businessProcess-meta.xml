@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Standard</fullName>
+    <description>Opportunity with an entire sales cycle</description>
+    <isActive>true</isActive>
+    <values>
+        <fullName>1- Meeting Done</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>2- Sales Accepted</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>3- Qualified</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>4- Selection Started</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>5- Value Proven</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>6- Preferred Vendor</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>7- Business Win</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Closed Won</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Lost</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

@@ -1,0 +1,36 @@
+<template>
+    <div class="border">        
+        <div class="filters">
+            <div class="slds-m-left_small slds-m-top_small"><b>{accsToDisplay.length} of {accsRetrieved.length} items. Total {selectedRows.length} items selected</b></div>
+            <div class="accNameFilter">
+                <lightning-input
+                    type="search"
+                    searchfield="accName"
+                    value={accNameFilter}
+                    onchange={handleFilterChange}
+                    placeholder="Filter by Account Name">
+                </lightning-input>            
+                <lightning-input 
+                    class="accCountryFilter"
+                    type="search"
+                    searchfield="accCountry"
+                    value={accCountryFilter}
+                    onchange={handleFilterChange}
+                    placeholder="Filter by Billing Country">
+                </lightning-input>
+            </div>            
+        </div>        
+        <lightning-datatable
+                data-id="datatable"
+                wrap-table-header
+                key-field="accId"
+                data={accsToDisplay}
+                columns={columns}
+                selected-rows={selectedRows}
+                onrowselection={handleRowSelection}>
+        </lightning-datatable>
+        <div lwc:if={showNoDataMessage} class="slds-align_absolute-center slds-m-around_x-small">
+            <b>No Records To Display</b>
+        </div>
+    </div>
+</template>

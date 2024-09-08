@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LeadSourceNotAllowedAtUpdate</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()) ,
+ $Permission.ByPassVR = false,
+ISCHANGED( LeadSource__c ))</errorConditionFormula>
+    <errorDisplayField>LeadSource__c</errorDisplayField>
+    <errorMessage>At lead update, you can only modify the lead source recent</errorMessage>
+</ValidationRule>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MandatoryRuleForCoTermField</fullName>
+    <active>true</active>
+    <description>If Opportunity type is “Upsell” or Cross-sell, then the value of the  &quot;Co-termed&quot;  field becomes mandatory.</description>
+    <errorConditionFormula>AND(NOT($Permission.ByPassVR), ISPICKVAL( CoTermed__c , &apos;&apos;),OR( ISPICKVAL( Type , &apos;Cross sell&apos;), ISPICKVAL( Type , &apos;Upsell&apos;)))</errorConditionFormula>
+    <errorDisplayField>CoTermed__c</errorDisplayField>
+    <errorMessage>Please provide the value</errorMessage>
+</ValidationRule>

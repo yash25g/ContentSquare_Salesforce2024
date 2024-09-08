@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="billToAccountId" type="String" description="Bill To Account Id"/>
+            <property name="rootAccountId" type="String" description="Root Account Id"/>
+            <property name="recordType" type="String" description="Record Type DeveloperName of the Contract record"/>
+            <property name="accIdsToExclude" type="String[]" description="Accounts Ids to exlude"/>            
+            <property name="selectedAccs" type="String" description="Accounts selected for contract"/>            
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
