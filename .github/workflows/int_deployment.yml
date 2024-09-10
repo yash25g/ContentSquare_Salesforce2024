@@ -1,6 +1,5 @@
 name: Deploy to Integration
-
-# Definition when the workflow should run
+# Definition of when the workflow should run
 on:
   pull_request:
     types:
@@ -22,14 +21,14 @@ jobs:
       - name: "Checkout source code"
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2        
-        
+          fetch-depth: 2
+
       # Setup Node
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-    
+
       # Install SFDX CLI
       - name: Install SFDX CLI
         run: npm install @salesforce/cli --global
@@ -59,14 +58,15 @@ jobs:
             IFS=',' read -r -a FILES <<< "${{ env.FORMATTED_CHANGED_FILES }}"
             ARGS=""
             for FILE in "${FILES[@]}"; do
-              ARGS="$ARGS --source-dir $FILE"
+              ARGS="$ARGS --source-dir \"$FILE\""  # Escape quotes around $FILE
             done
             # Echo the full command before executing
             echo "sf project deploy preview --ignore-conflicts $ARGS --target-org OneCRM_Int"
-            sf project deploy preview --ignore-conflicts $ARGS --target-org OneCRM_Int
+            # Execute the command
+            eval "sf project deploy preview --ignore-conflicts $ARGS --target-org OneCRM_Int"
           else
             echo "No changed files to preview."
-          fi 
+          fi
 
       # Deployment
       - name: "Push changes to Integration sandbox"
@@ -76,14 +76,15 @@ jobs:
             IFS=',' read -r -a FILES <<< "${{ env.FORMATTED_CHANGED_FILES }}"
             ARGS=""
             for FILE in "${FILES[@]}"; do
-              ARGS="$ARGS --source-dir $FILE"
+              ARGS="$ARGS --source-dir \"$FILE\""  # Escape quotes around $FILE
             done
             # Echo the full command before executing
             echo "sf project deploy start --ignore-conflicts $ARGS --target-org OneCRM_Int"
-            sf project deploy start --ignore-conflicts $ARGS --target-org OneCRM_Int
+            # Execute the command
+            eval "sf project deploy start --ignore-conflicts $ARGS --target-org OneCRM_Int"
           else
-            echo "No changed files to preview."
-          fi 
+            echo "No changed files to deploy."
+          fi
 
       # Load data
       - name: "Load data"
